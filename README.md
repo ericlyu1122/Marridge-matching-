@@ -1,2 +1,3 @@
 # Marridge-matching-
-CPSC304 project
+Implemented by using PHP and Oracle
+Group members: Eric Lyu, Steven Huang, Zoey Li
