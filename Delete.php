@@ -103,7 +103,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         function printResult($result) { //prints results from a select statement
             echo "<br>Retrieved data from table demoTable:<br>";
             echo "<table>";
-            echo "<tr><th> ManagerID</th><th>Name_MSC</th></tr>Name_mCEO</th></tr>Workforce</th></tr>";
+           echo "<tr><th> ManagerID</th><th>Name_MSC</th><th>Name_mCEO</th><th>Workforce</th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] 

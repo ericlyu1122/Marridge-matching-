@@ -2,13 +2,7 @@
 <html>
     <head>
         <title>Insert Request</title>
-        <h1>CREATE TABLE Has_Manager(      ManagerID INTEGER, 
-Name_MSC CHAR(20) NOT NULL,
-CEO CHAR(20) NOT NULL,
-Name_m CHAR(20),
-Workforce INTEGER,
-PRIMARY KEY ManagerID,
-FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCADE) </h1>
+        <h1> </h1>
     </head>
 
     <body>
@@ -22,22 +16,21 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         </form>
 
         <hr />
-//////////////
-        <h2>Insert Values into Has_Manager</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
-            <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-            ManagerID: <input type="text" name="val0"> <br /><br />
-            Name_MSC: <input type="text" name="val1"> <br /><br />
-            CEO: <input type="text" name="val2"> <br /><br />
-            Name_m: <input type="text" name="val3"> <br /><br />
-            Workforce: <input type="text" name="val4"> <br /><br />
 
-            <input type="submit" value="InsertButton" name="insertSubmit"></p>
+        <h2>Update Customer's information</h2>
+        <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+
+        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
+            MemberID: <input type="text" name="memberID"> <br /><br />
+            New Name: <input type="text" name="newName"> <br /><br />
+
+            <input type="submit" value="Update" name="updateSubmit"></p>
         </form>
 
         <hr />
 
-        <h2>Display the Tuples in Has_Manager Table</h2>
+        <h2>Display the Tuples in Customer_advises Table</h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
@@ -118,13 +111,15 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         }
 
         function printResult($result) { //prints results from a select statement
-            echo "<br>Retrieved data from table demoTable:<br>";
+            echo "<br>Retrieved data from table Customer_advises:<br>";
             echo "<table>";
-           echo "<tr><th> ManagerID</th><th>Name_MSC</th><th>Name_mCEO</th><th>Workforce</th></tr>";
+            echo "<tr><th>MemberID</th><th>Occupation</th><th>Birthday</th><th>Age</th><th>Customer Name</th><th>Acess to other customer's profile</th><th>Designated matchmaker's EmpolyeeID</th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-               echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] 
-            . "</td><td>" ; //or just use "echo $row[0]"
+               echo "<tr><td>" . $row["MemberID"] . "</td><td>" . $row["Occupation"] 
+               ."</td><td>" . $row["Birthday"] ."</td><td>" . $row["Age"]
+               ."</td><td>" . $row["C_name"]."</td><td>" . $row["Access"]
+               ."</td><td>" . $row["EmpolyeeID"] ."</td></tr>"; 
             }
 
             echo "</table>";
@@ -167,44 +162,37 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
             OCICommit($db_conn);
         }
 
-        function handleInsertRequest() {
-             global $db_conn;
-    
-        executePlainSQL("INSERT INTO Has_Manager values ({$_POST['val0']}, '{$_POST['val1']}', '{$_POST['val2']}', '{$_POST['val3']}', 
-                            {$_POST['val4']}");
-        OCICommit($db_conn);
+        function handleUpdateRequest() {
+            global $db_conn;
+
+            // need the wrap the old name and new name values with single quotations
+            executePlainSQL("UPDATE Customer_advises SET C_name = '{$_POST['newName']}' WHERE MemberID = {$_POST['memberID']}");
+            OCICommit($db_conn);
         }
             
         function handledisplayRequest() {
-                global $db_conn;
+            global $db_conn;
 
-                $result = executePlainSQL("SELECT * FROM Has_Manager");
-                printResult($result);
+            $result = executePlainSQL("SELECT * FROM Customer_advises");
+            printResult($result);
                 
-            }
-
-        // HANDLE ALL POST ROUTES
-    // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
-        function handlePOSTRequest() {
-            if (connectToDB()) {
-                if (array_key_exists('resetTablesRequest', $_POST)) {
-                    handleResetRequest();
-                }
-                else if (array_key_exists('insertQueryRequest', $_POST)) {
-                    handleInsertRequest();
-                }
-                else if (array_key_exists('displayTuples', $_POST)) {
-                    handledisplayRequest();
-                }
-
-                disconnectFromDB();
-            }
         }
+        
+            if (isset($_POST['updateSubmit'])) {
+                if(connectToDB()) {
+                    handleUpdateRequest();
+                    disconnectFromDB();
+                } 
+            } else if (isset($_GET['displayTupleRequest'])) {
+                if(connectToDB()) {
+                    handledisplayRequest();
+                    disconnectFromDB();
+                }
+            } else if (isset($_POST['DEMO_redirect'])) {
+                header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+                exit;
+            } 
 
-
-        if (isset($_POST['reset']) || isset($_POST['insertSubmit']) || isset($_POST['displayTupleRequest'])) {
-            handlePOSTRequest();
-        } 
         ?>
     </body>
 </html>
