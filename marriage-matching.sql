@@ -23,6 +23,7 @@ CREATE TABLE Has_Manager
     FOREIGN KEY(CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) 
     ON DELETE CASCADE
 );
+grant select on Has_Manager to public;
 
 CREATE TABLE Manage_MSC
 (
@@ -36,6 +37,7 @@ CREATE TABLE Manage_MSC
     FOREIGN KEY (DA_Name) REFERENCES DatingAgency(DA_Name)
     ON DELETE SET NULL
 );
+grant select on Manage_MSC to public;
 
 CREATE TABLE TravelPlan
 (
@@ -46,6 +48,8 @@ CREATE TABLE TravelPlan
     TravelPlace CHAR(20),
     PRIMARY KEY (DocumentID)
 );
+grant select on TravelPlan to public;
+
 
 CREATE TABLE GiftPlan
 (
@@ -56,6 +60,7 @@ CREATE TABLE GiftPlan
     Type CHAR(20),
     PRIMARY KEY (DocumentID)
 );
+grant select on GiftPlan to public;
 
 CREATE TABLE DatingAgency
 (
@@ -64,6 +69,7 @@ CREATE TABLE DatingAgency
     HQbaseCountry CHAR(20),
     PRIMARY KEY (DA_Name)
 );
+grant select on DatingAgency to public;
 
 CREATE TABLE DatingClub
 (
@@ -72,6 +78,7 @@ CREATE TABLE DatingClub
     AnnualFee INTEGER,
     PRIMARY KEY(ClubName)
 );
+grant select on DatingClub to public;
 
 CREATE TABLE Serves
 (
@@ -83,6 +90,7 @@ CREATE TABLE Serves
     FOREIGN KEY (MemberID) REFERENCES Customer_advises(MemberID)
     ON DELETE SET NULL
 );
+grant select on Serves to public;
 
 CREATE TABLE Branch_Own
 (
@@ -96,6 +104,7 @@ CREATE TABLE Branch_Own
     FOREIGN KEY (DA_Name) REFERENCES DatingClub(DA_Name) 
     ON DELETE CASCADE
 );
+grant select on Branch_Own to public;
 
 CREATE TABLE Customer_advises
 (
@@ -110,6 +119,7 @@ CREATE TABLE Customer_advises
     FOREIGN KEY (EmpolyeeID) REFERENCES Matchmaker_manage(EmpolyeeID) 
     ON DELETE CASCADE
 );
+grant select on Customer_advises to public;
 
 CREATE TABLE Matchmaker_manage
 (
@@ -121,6 +131,7 @@ CREATE TABLE Matchmaker_manage
     FOREIGN KEY (ManagerID) REFERENCES Has_Manager(ManagerID) 
     ON DELETE CASCADE
 );
+grant select on Matchmaker_manage to public;
 
 CREATE TABLE match
 (
@@ -134,6 +145,7 @@ CREATE TABLE match
     FOREIGN KEY (MemberID_b) REFERENCES Customer_advises(MemberID) 
     ON DELETE SET NULL
 )
+grant select on match to public;
 
 CREATE TABLE design
 (
@@ -147,6 +159,7 @@ CREATE TABLE design
     FOREIGN KEY (DocumentID) REFERENCES TravelPlan(DocumentID) 
     ON DELETE SET NULL
 );
+grant select on design to public;
 
 INSERT INTO Has_Manager
 VALUES(45876, 'Huang''s Marriage.Co', 'Steven Huang', 'Patrick Huang', 20);

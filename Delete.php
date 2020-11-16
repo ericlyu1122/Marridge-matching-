@@ -12,7 +12,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
     <body>
         <h2>Delete a tuple with selected ID in the Has_Manager Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Delete.php"> <!--refresh page when submitted-->
             <input type="hidden" id="DeleteRequest" name="DeleteRequest">
               ManagerID: <input type="text" name="deleteVal"> <br /><br />
             <input type="submit" value="DeleteButton" name="Delete"></p>
@@ -21,7 +21,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         <hr />
 
         <h2>Display the Tuples in Has_Manager Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="GET" action="Delete.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
@@ -118,8 +118,8 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
             // Your username is ora_(CWL_ID) and the password is a(student number). For example,
             // ora_platypus is the username and a12345678 is the password.
-            $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
-
+            // $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+            $db_conn = OCILogon("ora_zhuoyil", "a37859600", "dbhost.students.cs.ubc.ca:1522/stu");
             if ($db_conn) {
                 debugAlertMessage("Database is Connected");
                 return true;
@@ -160,19 +160,22 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
                 if (array_key_exists('DeleteRequest', $_POST)) {
                     handleDeleteRequest();
                 }
-              
-                else if (array_key_exists('displayTuples', $_POST)) {
-                    handledisplayRequest();
-                }
 
                 disconnectFromDB();
             }
         }
 
-
-        if (isset($_POST['Delete']) || isset($_POST['displayTupleRequest'])) {
+        if (isset($_POST['Delete'])) {
             handlePOSTRequest();
-        } 
+        } else if (isset($_GET['displayTupleRequest'])) {
+            if(connectToDB()) {
+                handledisplayRequest();
+                disconnectFromDB();
+            }
+        } else if (isset($_POST['DEMO_redirect'])) {
+            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            exit;
+        }
         ?>
     </body>
 </html>

@@ -6,21 +6,11 @@
     </head>
 
     <body>
-        <h2>Reset</h2>
-        <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
-
-        <form method="POST" action="oracle-test.php">
-            <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
-            <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
-            <p><input type="submit" value="Reset" name="reset"></p>
-        </form>
-
-        <hr />
 
         <h2>Update Customer's information</h2>
         <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
 
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Update.php"> <!--refresh page when submitted-->
             <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
             MemberID: <input type="text" name="memberID"> <br /><br />
             New Name: <input type="text" name="newName"> <br /><br />
@@ -31,7 +21,7 @@
         <hr />
 
         <h2>Display the Tuples in Customer_advises Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Update.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
@@ -130,8 +120,8 @@
 
             // Your username is ora_(CWL_ID) and the password is a(student number). For example,
             // ora_platypus is the username and a12345678 is the password.
-            $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
-
+            // $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+            $db_conn = OCILogon("ora_zhuoyil", "a37859600", "dbhost.students.cs.ubc.ca:1522/stu");
             if ($db_conn) {
                 debugAlertMessage("Database is Connected");
                 return true;
@@ -178,20 +168,20 @@
                 
         }
         
-            if (isset($_POST['updateSubmit'])) {
-                if(connectToDB()) {
-                    handleUpdateRequest();
-                    disconnectFromDB();
-                } 
-            } else if (isset($_GET['displayTupleRequest'])) {
-                if(connectToDB()) {
-                    handledisplayRequest();
-                    disconnectFromDB();
-                }
-            } else if (isset($_POST['DEMO_redirect'])) {
-                header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
-                exit;
+        if (isset($_POST['updateSubmit'])) {
+            if(connectToDB()) {
+                handleUpdateRequest();
+                disconnectFromDB();
             } 
+        } else if (isset($_GET['displayTupleRequest'])) {
+            if(connectToDB()) {
+                handledisplayRequest();
+                disconnectFromDB();
+            }
+        } else if (isset($_POST['DEMO_redirect'])) {
+            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            exit;
+        } 
 
         ?>
     </body>

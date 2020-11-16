@@ -12,7 +12,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
     <body>
         <h2>Select tuples with input Id and parameter from the Has_Manager Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Selection.php"> <!--refresh page when submitted-->
             <select name="type">
                <option value="Name_MSC">Name_MSC</option>
                <option value="CEO">CEO</option>
@@ -26,7 +26,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         <hr />
 
         <h2>Display the Tuples in Has_Manager Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Selection.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
@@ -123,8 +123,8 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
             // Your username is ora_(CWL_ID) and the password is a(student number). For example,
             // ora_platypus is the username and a12345678 is the password.
-            $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
-
+            // $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+            $db_conn = OCILogon("ora_zhuoyil", "a37859600", "dbhost.students.cs.ubc.ca:1522/stu");
             if ($db_conn) {
                 debugAlertMessage("Database is Connected");
                 return true;
@@ -145,10 +145,10 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
         function handleSelectionRequest() {
              global $db_conn;
-   
-        $result = executePlainSQL("SELECT * FROM Has_Manager WHERE {$_POST['type'] $_POST['operator'] $_POST['value']}");
-         printResult($result);
-        OCICommit($db_conn);
+            $query = "SELECT * FROM Has_Manager WHERE {$_POST['type']} {$_POST['operator']} {$_POST['value']}";
+            $result = executePlainSQL($query);
+            printResult($result);
+            OCICommit($db_conn);
         }
             
         function handledisplayRequest() {
@@ -159,25 +159,21 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
                 
             }
 
-        // HANDLE ALL POST ROUTES
-    // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
-        function handlePOSTRequest() {
-            if (connectToDB()) {             
-                 if (array_key_exists('displayTuples', $_POST)) {
-                    handledisplayRequest();
-                }
-
+       
+        if (isset($_POST['Select'])) {
+            if(connectToDB()) {
+                handleSelectionRequest();
+                disconnectFromDB();
+            } 
+        } else if (isset($_GET['displayTupleRequest'])) {
+            if(connectToDB()) {
+                handledisplayRequest();
                 disconnectFromDB();
             }
-        }
-
-
-        if (isset($_POST['displayTupleRequest'])) {
-            handlePOSTRequest();
+        } else if (isset($_POST['DEMO_redirect'])) {
+            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            exit;
         } 
-        else if(isset($_POST['Select'])){
-            handleSelectionRequest();
-        }
         ?>
     </body>
 </html>

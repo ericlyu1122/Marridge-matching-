@@ -41,7 +41,7 @@
 <body>
     <h2>Projection on Matchmakers </h2>
     <p>List all Matchmakers Names in MatchMaker_manage</p>
-    <form method="GET" action="Projection_page.php">
+    <form method="GET" action="Projection.php">
         <!--refresh page when submitted-->
         <input type="hidden" id="requestProjection" name="requestProjection">
         EmpolyeeID: <input type="checkbox" name="chval0"> <br /><br />
@@ -56,7 +56,7 @@
 
     <h2>Result</h2>
 
-    <form method="POST" action="Projection_page.php">
+    <form method="GET" action="Projection_page.php">
         <!--refresh page when submitted-->
         <input type="submit" value="List all Matchmakers' Name" name="display_result"></p>
     </form>
@@ -184,7 +184,8 @@
 
         // Your username is ora_(CWL_ID) and the password is a(student number). For example, 
         // ora_platypus is the username and a12345678 is the password.
-        $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+        // $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+        $db_conn = OCILogon("ora_zhuoyil", "a37859600", "dbhost.students.cs.ubc.ca:1522/stu");
         if ($db_conn) {
             debugAlertMessage("Database is Connected");
             return true;
@@ -212,10 +213,10 @@
             array_push($projectionList, 'EmpolyeeID, ');
         }
         if (isset($_GET['chval1'])) {
-            array_push($projectionList, 'name, ');
+            array_push($projectionList, 'E_name, ');
         }
         if (isset($_GET['chval2'])) {
-            array_push($projectionList, 'rate(star), ');
+            array_push($projectionList, 'Rate, ');
         }
         if (isset($_GET['chval3'])) {
             array_push($projectionList, 'ManagerID ');
@@ -240,7 +241,7 @@
             handleProjection();
             disconnectFromDB();
         }
-    } else if (isset($_POST['display_result'])) {
+    } else if (isset($_GET['display_result'])) {
         if (connectToDB()) {
             $result = executePlainSQL("SELECT * FROM Matchmaker_manage");
             printResultMatchmakerManage($result);

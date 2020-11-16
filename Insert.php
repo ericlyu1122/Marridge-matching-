@@ -2,29 +2,23 @@
 <html>
     <head>
         <title>Insert Request</title>
-        <h1>CREATE TABLE Has_Manager(      ManagerID INTEGER, 
-Name_MSC CHAR(20) NOT NULL,
-CEO CHAR(20) NOT NULL,
-Name_m CHAR(20),
-Workforce INTEGER,
-PRIMARY KEY ManagerID,
-FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCADE) </h1>
+        <h1></h1>
     </head>
 
     <body>
         <h2>Reset</h2>
         <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
 
-        <form method="POST" action="oracle-test.php">
+        <form method="POST" action="Insert.php">
             <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
             <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
             <p><input type="submit" value="Reset" name="reset"></p>
         </form>
 
         <hr />
-//////////////
+
         <h2>Insert Values into Has_Manager</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="POST" action="Insert.php"> <!--refresh page when submitted-->
             <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
             ManagerID: <input type="text" name="val0"> <br /><br />
             Name_MSC: <input type="text" name="val1"> <br /><br />
@@ -38,7 +32,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         <hr />
 
         <h2>Display the Tuples in Has_Manager Table</h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="GET" action="Insert.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
@@ -135,8 +129,8 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
 
             // Your username is ora_(CWL_ID) and the password is a(student number). For example,
             // ora_platypus is the username and a12345678 is the password.
-            $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
-
+            // $db_conn = OCILogon("ora_lyuchenh", "a95094207", "dbhost.students.cs.ubc.ca:1522/stu");
+            $db_conn = OCILogon("ora_zhuoyil", "a37859600", "dbhost.students.cs.ubc.ca:1522/stu");
             if ($db_conn) {
                 debugAlertMessage("Database is Connected");
                 return true;
@@ -193,18 +187,23 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
                 else if (array_key_exists('insertQueryRequest', $_POST)) {
                     handleInsertRequest();
                 }
-                else if (array_key_exists('displayTuples', $_POST)) {
-                    handledisplayRequest();
-                }
 
                 disconnectFromDB();
             }
         }
 
 
-        if (isset($_POST['reset']) || isset($_POST['insertSubmit']) || isset($_POST['displayTupleRequest'])) {
+        if (isset($_POST['reset']) || isset($_POST['insertSubmit'])) {
             handlePOSTRequest();
-        } 
+        } else if (isset($_GET['displayTupleRequest'])) {
+            if(connectToDB()) {
+                handledisplayRequest();
+                disconnectFromDB();
+            }
+        } else if (isset($_POST['DEMO_redirect'])) {
+            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            exit;
+        }
         ?>
     </body>
 </html>
