@@ -1,29 +1,69 @@
-drop table Has_Manager;
-drop table Manage_MSC;
-drop table TravelPlan;
-drop table GiftPlan;
-drop table DatingAgency;
-drop table DatingClub;
-drop table Serves;
-drop table Branch_Own;
-drop table Customer_advises;
-drop table Matchmaker_manage;
-drop table match;
-drop table design;
+drop table Has_Manager
+cascade constraints;
+drop table Manage_MSC
+cascade constraints;
+drop table TravelPlan
+cascade constraints;
+drop table GiftPlan
+cascade constraints;
+drop table DatingAgency
+cascade constraints;
+drop table DatingClub
+cascade constraints;
+drop table Serves
+cascade constraints;
+drop table Branch_Own
+cascade constraints;
+drop table Customer_advises
+cascade constraints;
+drop table Matchmaker_manage
+cascade constraints;
+drop table match
+cascade constraints;
+drop table design
+cascade constraints;
 
 
-CREATE TABLE Has_Manager
+CREATE TABLE TravelPlan
 (
-    ManagerID INTEGER PRIMARY KEY,
-    Name_MSC CHAR(20) NOT NULL,
-    CEO CHAR(20) NOT NULL,
-    M_Name CHAR(20),
-    Workforce INTEGER,
-    PRIMARY KEY(ManagerID),
-    FOREIGN KEY(CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) 
-    ON DELETE CASCADE
+    DocumentID INTEGER,
+    Cost INTEGER,
+    Preference CHAR(20),
+    Style CHAR(20),
+    TravelPlace CHAR(20),
+    PRIMARY KEY (DocumentID)
 );
-grant select on Has_Manager to public;
+grant select on TravelPlan to public;
+
+CREATE TABLE GiftPlan
+(
+    DocumentID INTEGER,
+    Cost INTEGER,
+    Preference CHAR(20),
+    Style CHAR(20),
+    Type CHAR(20),
+    PRIMARY KEY (DocumentID)
+);
+grant select on GiftPlan to public;
+
+
+CREATE TABLE DatingClub
+(
+    ClubName CHAR(20),
+    Fund INTEGER,
+    AnnualFee INTEGER,
+    PRIMARY KEY (ClubName)
+);
+grant select on DatingClub to public;
+
+CREATE TABLE DatingAgency
+(
+    DA_Name CHAR(20),
+    WholeMarketShare CHAR(20),
+    HQbaseCountry CHAR(20),
+    PRIMARY KEY (DA_Name)
+);
+grant select on DatingAgency to public;
 
 CREATE TABLE Manage_MSC
 (
@@ -39,46 +79,45 @@ CREATE TABLE Manage_MSC
 );
 grant select on Manage_MSC to public;
 
-CREATE TABLE TravelPlan
+CREATE TABLE Has_Manager
 (
-    DocumentID INTEGER,
-    Cost INTEGER,
-    Preference CHAR(20),
-    Style CHAR(20),
-    TravelPlace CHAR(20),
-    PRIMARY KEY (DocumentID)
+    ManagerID INTEGER,
+    Name_MSC CHAR(20) NOT NULL,
+    CEO CHAR(20) NOT NULL,
+    M_Name CHAR(20),
+    Workforce INTEGER,
+    PRIMARY KEY (ManagerID),
+    FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) 
+    ON DELETE CASCADE
 );
-grant select on TravelPlan to public;
+grant select on Has_Manager to public;
 
-
-CREATE TABLE GiftPlan
+CREATE TABLE Matchmaker_manage
 (
-    DocumentID INTEGER,
-    Cost INTEGER,
-    Preference CHAR(20),
-    Style CHAR(20),
-    Type CHAR(20),
-    PRIMARY KEY (DocumentID)
+    EmployeeID INTEGER,
+    E_name CHAR(20),
+    Rate INTEGER,
+    ManagerID INTEGER NOT NULL,
+    PRIMARY KEY (EmployeeID),
+    FOREIGN KEY (ManagerID) REFERENCES Has_Manager(ManagerID) 
+    ON DELETE CASCADE
 );
-grant select on GiftPlan to public;
+grant select on Matchmaker_manage to public;
 
-CREATE TABLE DatingAgency
+CREATE TABLE Customer_advises
 (
-    DA_Name CHAR(20),
-    WholeMarketShare CHAR(20),
-    HQbaseCountry CHAR(20),
-    PRIMARY KEY (DA_Name)
+    MemberID INTEGER,
+    Occupation CHAR(20),
+    Birthday DATE,
+    Age INTEGER,
+    C_name CHAR(20),
+    AccessToOthersProfile CHAR(20),
+    EmployeeID INTEGER,
+    PRIMARY KEY (MemberID),
+    FOREIGN KEY (EmployeeID) REFERENCES Matchmaker_manage(EmployeeID) 
+    ON DELETE CASCADE
 );
-grant select on DatingAgency to public;
-
-CREATE TABLE DatingClub
-(
-    ClubName CHAR(20),
-    Fund INTEGER,
-    AnnualFee INTEGER,
-    PRIMARY KEY(ClubName)
-);
-grant select on DatingClub to public;
+grant select on Customer_advises to public;
 
 CREATE TABLE Serves
 (
@@ -99,39 +138,12 @@ CREATE TABLE Branch_Own
     Fund INTEGER,
     BranchAddress CHAR(20),
     DA_Name CHAR(20) NOT NULL,
-    PRIMARY KEY(BranchID,DA_Name),
+    PRIMARY KEY (BranchID,DA_Name),
     UNIQUE (BranchAddress),
     FOREIGN KEY (DA_Name) REFERENCES DatingClub(DA_Name) 
     ON DELETE CASCADE
 );
 grant select on Branch_Own to public;
-
-CREATE TABLE Customer_advises
-(
-    MemberID INTEGER,
-    Occupation CHAR(20),
-    Birthday DATE,
-    Age INTEGER,
-    C_name CHAR(20),
-    Access BOOL,
-    EmpolyeeID INTEGER,
-    PRIMARY KEY(MemberID),
-    FOREIGN KEY (EmpolyeeID) REFERENCES Matchmaker_manage(EmpolyeeID) 
-    ON DELETE CASCADE
-);
-grant select on Customer_advises to public;
-
-CREATE TABLE Matchmaker_manage
-(
-    EmpolyeeID INTEGER,
-    E_name CHAR(20),
-    Rate INTEGER,
-    ManagerID INTEGER NOT NULL,
-    PRIMARY KEY(EmployeeID),
-    FOREIGN KEY (ManagerID) REFERENCES Has_Manager(ManagerID) 
-    ON DELETE CASCADE
-);
-grant select on Matchmaker_manage to public;
 
 CREATE TABLE match
 (
@@ -153,7 +165,7 @@ CREATE TABLE design
     DocumentID INTEGER,
     StartTime DATE,
     EndTime DATE,
-    PRIMARY KEY(MemberID, DocumentID),
+    PRIMARY KEY (MemberID, DocumentID),
     FOREIGN KEY (MemberID) REFERENCES Customer_advises(MemberID) 
     ON DELETE SET NULL,
     FOREIGN KEY (DocumentID) REFERENCES TravelPlan(DocumentID) 

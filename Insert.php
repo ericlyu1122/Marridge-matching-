@@ -112,7 +112,7 @@
         }
 
         function printResult($result) { //prints results from a select statement
-            echo "<br>Retrieved data from table demoTable:<br>";
+            echo "<br>Retrieved data from table Has_Manager:<br>";
             echo "<table>";
            echo "<tr><th> ManagerID</th><th>Name_MSC</th><th>Name_mCEO</th><th>Workforce</th></tr>";
 

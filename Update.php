@@ -108,7 +108,7 @@
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
                echo "<tr><td>" . $row["MemberID"] . "</td><td>" . $row["Occupation"] 
                ."</td><td>" . $row["Birthday"] ."</td><td>" . $row["Age"]
-               ."</td><td>" . $row["C_name"]."</td><td>" . $row["Access"]
+               ."</td><td>" . $row["C_name"]."</td><td>" . $row["AccessToOthersProfile"]
                ."</td><td>" . $row["EmpolyeeID"] ."</td></tr>"; 
             }
 
