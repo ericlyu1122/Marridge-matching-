@@ -46,7 +46,6 @@ CREATE TABLE GiftPlan
 );
 grant select on GiftPlan to public;
 
-
 CREATE TABLE DatingClub
 (
     ClubName CHAR(20),
@@ -140,7 +139,7 @@ CREATE TABLE Branch_Own
     DA_Name CHAR(20) NOT NULL,
     PRIMARY KEY (BranchID,DA_Name),
     UNIQUE (BranchAddress),
-    FOREIGN KEY (DA_Name) REFERENCES DatingClub(DA_Name) 
+    FOREIGN KEY (DA_Name) REFERENCES DatingAgency(DA_Name) 
     ON DELETE CASCADE
 );
 grant select on Branch_Own to public;
@@ -156,7 +155,7 @@ CREATE TABLE match
     ON DELETE SET NULL,
     FOREIGN KEY (MemberID_b) REFERENCES Customer_advises(MemberID) 
     ON DELETE SET NULL
-)
+);
 grant select on match to public;
 
 CREATE TABLE design
@@ -173,28 +172,6 @@ CREATE TABLE design
 );
 grant select on design to public;
 
-INSERT INTO Has_Manager
-VALUES(45876, 'Huang''s Marriage.Co', 'Steven Huang', 'Patrick Huang', 20);
-INSERT INTO Has_Manager
-VALUES(23342, 'Huang''s Marriage.Co', 'Steven Huang', 'Lisa Ma', 15);
-INSERT INTO Has_Manager
-VALUES(33213, 'Huang''s Marriage.Co', 'Steven Huang', 'Mark Li', 12);
-INSERT INTO Has_Manager
-VALUES(15876, 'Huang''s Marriage.Co', 'Steven Huang', 'Luna Iy', 5);
-INSERT INTO Has_Manager
-VALUES(22334, 'Huang''s Marriage.Co', 'Steven Huang', 'Donald Trump', 40);
-
-INSERT INTO Manage_MSC
-VALUES('Huang''s Marriage.Co', 'Steven Huang', 'Huang''s Club', 'Huang''s Agency');
-INSERT INTO Manage_MSC
-VALUES('Eric''s Marriage.Co', 'Eric Lyu', 'Eric''s Club', 'Eric''s Agency');
-INSERT INTO Manage_MSC
-VALUES('Zoey''s Marriage.Co', 'Zoey Li', 'Zoey''s Club', 'Zoey''s Agency');
-INSERT INTO Manage_MSC
-VALUES('Abbie''s Marriage.Co', 'Abbie Wen', 'Abbie''s Club', 'Abbie''s Agency');
-INSERT INTO Manage_MSC
-VALUES('Cindy''s Marriage.Co', 'Cindy Li', 'Huang''s Club', 'Huang''s Agency');
-
 INSERT INTO TravelPlan
 VALUES(23451, 6000, '5-star hotel', 'Romantic', 'China');
 INSERT INTO TravelPlan
@@ -204,7 +181,8 @@ VALUES(31123 , 4000, 'Beautiful Places', 'Spicy', 'America');
 INSERT INTO TravelPlan
 VALUES(09887, 5000, 'Close to the sea', 'Romantic', 'America');
 INSERT INTO TravelPlan
-VALUES(27889, 22311, 'Include helicopter delivery', 'Luxury', 'Banff');
+VALUES(27889, 22311, 'Helicopter', 'Luxury', 'Banff');
+
 
 INSERT INTO GiftPlan
 VALUES(12121, 50, 'Flowers', 'Romantic', 'Rose');
@@ -239,48 +217,27 @@ VALUES('Cindy''s Club', 500000, 80);
 INSERT INTO DatingClub
 VALUES('Abbie''s Club', 50000, 150);
 
-INSERT INTO Serves
-VALUES('Huang''s Club', 12345);
-INSERT INTO Serves
-VALUES('Eric''s Club', 67895);
-INSERT INTO Serves
-VALUES('Zoey''s Club', 77894);
-INSERT INTO Serves
-VALUES('Cindy''s Club', 47885);
-INSERT INTO Serves
-VALUES('Abbie''s Club', 33214);
+INSERT INTO Manage_MSC
+VALUES('Huang''s Marriage.Co', 'Steven Huang', 'Huang''s Club', 'Huang''s Agency');
+INSERT INTO Manage_MSC
+VALUES('Eric''s Marriage.Co', 'Eric Lyu', 'Eric''s Club', 'Eric''s Agency');
+INSERT INTO Manage_MSC
+VALUES('Zoey''s Marriage.Co', 'Zoey Li', 'Zoey''s Club', 'Zoey''s Agency');
+INSERT INTO Manage_MSC
+VALUES('Abbie''s Marriage.Co', 'Abbie Wen', 'Abbie''s Club', 'Abbie''s Agency');
+INSERT INTO Manage_MSC
+VALUES('Cindy''s Marriage.Co', 'Cindy Li', 'Huang''s Club', 'Huang''s Agency');
 
-INSERT INTO Branch_Own
-VALUES(101, 'Vancouver, BC', 500000, '1100 W Broadway', 'Cindy''s Agency');
-INSERT INTO Branch_Own
-VALUES(127, 'Vancouver, BC', 800000, '1529 W 6th Ave', 'Eric''s Agency');
-INSERT INTO Branch_Own
-VALUES(221, 'Ottawa, ON', 800000, '1142 Bank St', 'Abbie''s Agency');
-INSERT INTO Branch_Own
-VALUES(001, 'Ottawa, ON', 200000, '161 Flora St', 'Zoey''s Agency');
-INSERT INTO Branch_Own
-VALUES(541, 'Toronto, ON', 500000, '8 King St E', 'Huang''s Agency');
-
-INSERT INTO Customer_advises
-VALUES(22331, 'Driver', '1978-02-09', 42, 'Lisa Wu', 'True', 12334);
-INSERT INTO Customer_advises
-VALUES(98872, 'Police', '1980-02-13', 40, 'Amanda Wu', 'False', 12334);
-INSERT INTO Customer_advises
-VALUES(09876, 'Biochemical Engineer', '1977-02-01', 43, 'Dina Liu', 'True', 12366);
-INSERT INTO Customer_advises
-VALUES(11442, 'Civil Engineer', '1979-03-30', 41, 'Alice Sun', 'True', 12366);
-INSERT INTO Customer_advises
-VALUES(09877, 'Police', '1973-04-02', 47, 'John Wu', 'True', 33211);
-INSERT INTO Customer_advises
-VALUES(12358, 'Professor', '1997-07-08', 21, 'Yuntao Wu', 'True', 12334);
-INSERT INTO Customer_advises
-VALUES(12136, 'Youtuber', '1988-12-10', 32, 'Tony Kim', 'False', 12334);
-INSERT INTO Customer_advises
-VALUES(12001, 'Computer Engineer', '1986-11-19', 21, 'Maxon Zhao', 'True', 12366);
-INSERT INTO Customer_advises
-VALUES(11898, 'Accountant', '1992-07-11', 31, 'Cindy Huang', 'True', 12366);
-INSERT INTO Customer_advises
-VALUES(11285, 'Pilot', '1994-01-07', 26, 'Nicolas Ng', 'True', 33211);
+INSERT INTO Has_Manager
+VALUES(45876, 'Huang''s Marriage.Co', 'Steven Huang', 'Patrick Huang', 20);
+INSERT INTO Has_Manager
+VALUES(23342, 'Huang''s Marriage.Co', 'Steven Huang', 'Lisa Ma', 15);
+INSERT INTO Has_Manager
+VALUES(33213, 'Huang''s Marriage.Co', 'Steven Huang', 'Mark Li', 12);
+INSERT INTO Has_Manager
+VALUES(15876, 'Huang''s Marriage.Co', 'Steven Huang', 'Luna Iy', 5);
+INSERT INTO Has_Manager
+VALUES(22334, 'Huang''s Marriage.Co', 'Steven Huang', 'Donald Trump', 40);
 
 INSERT INTO Matchmaker_manage
 VALUES(10011, 'Mary', 8, 15876);
@@ -293,24 +250,67 @@ VALUES(30102, 'Mia', 7, 45876);
 INSERT INTO Matchmaker_manage
 VALUES(41100, 'William', 10, 22334);
 
+INSERT INTO Customer_advises
+VALUES(22331, 'Driver', '09-FEB-78', 42, 'Lisa Wu', 'True', 10011);
+INSERT INTO Customer_advises
+VALUES(98872, 'Police', '13-FEB-80', 40, 'Amanda Wu', 'False', 10011);
+INSERT INTO Customer_advises
+VALUES(09876, 'Biochemical Engineer', '01-FEB-77', 43, 'Dina Liu', 'True', 30102);
+INSERT INTO Customer_advises
+VALUES(11442, 'Civil Engineer', '30-MAR-79', 41, 'Alice Sun', 'True', 21030);
+INSERT INTO Customer_advises
+VALUES(09877, 'Police', '02-APR-73', 47, 'John Wu', 'True', 30102);
+INSERT INTO Customer_advises
+VALUES(12358, 'Professor', '08-JUL-97', 21, 'Yuntao Wu', 'True', 21030);
+INSERT INTO Customer_advises
+VALUES(12136, 'Youtuber', '10-DEC-88', 32, 'Tony Kim', 'False', 41100);
+INSERT INTO Customer_advises
+VALUES(12001, 'Computer Engineer', '19-NOV-86', 21, 'Maxon Zhao', 'True', 41100);
+INSERT INTO Customer_advises
+VALUES(11898, 'Accountant', '11-JUL-92', 31, 'Cindy Huang', 'True', 21030);
+INSERT INTO Customer_advises
+VALUES(11285, 'Pilot', '07-JAN-94', 26, 'Nicolas Ng', 'True', 30102);
+
+INSERT INTO Serves
+VALUES('Huang''s Club', 22331);
+INSERT INTO Serves
+VALUES('Eric''s Club', 12001);
+INSERT INTO Serves
+VALUES('Zoey''s Club', 11285);
+INSERT INTO Serves
+VALUES('Cindy''s Club', 09877);
+INSERT INTO Serves
+VALUES('Abbie''s Club', 12136);
+
+INSERT INTO Branch_Own
+VALUES(101, 'Vancouver, BC', 500000, '1100 W Broadway', 'Cindy''s Agency');
+INSERT INTO Branch_Own
+VALUES(127, 'Vancouver, BC', 800000, '1529 W 6th Ave', 'Eric''s Agency');
+INSERT INTO Branch_Own
+VALUES(221, 'Ottawa, ON', 800000, '1142 Bank St', 'Abbie''s Agency');
+INSERT INTO Branch_Own
+VALUES(001, 'Ottawa, ON', 200000, '161 Flora St', 'Zoey''s Agency');
+INSERT INTO Branch_Own
+VALUES(541, 'Toronto, ON', 500000, '8 King St E', 'Huang''s Agency');
+
 INSERT INTO match
-VALUES(22331, '2020-10-01', 09877);
+VALUES(11285, '01-OCT-20', 12001);
 INSERT INTO match
-VALUES(98872, '2019-08-09', 12358);
+VALUES(12136, '09-AUG-19', 11898);
 INSERT INTO match
-VALUES(09876, '2020-09-03', 12136);
+VALUES(11442, '03-SEP-20', 09877);
 INSERT INTO match
-VALUES(11442, '2020-10-20', 12001);
+VALUES(12358, '20-OCT-20', 22331);
 INSERT INTO match
-VALUES(11898, '2020-02-03', 11285);
+VALUES(98872, '03-FEB-20', 09876);
 
 INSERT INTO design
-VALUES(98872, 22112, '2019-05-03', '2019-05-09');
+VALUES(98872, 22112, '03-MAY-19', '09-MAY-19');
 INSERT INTO design
-VALUES(11442, 31123, '2020-03-01', '2020-03-06');
+VALUES(11442, 31123, '01-MAR-20', '06-MAR-20');
 INSERT INTO design
-VALUES(11898, 23451, '2019-12-20', '2020-01-09');
+VALUES(11898, 23451, '20-DEC-19', '09-JAN-20');
 INSERT INTO design
-VALUES(11285, 23431, '2019-12-20', '2020-01-09');
+VALUES(11285, 09887, '20-DEC-19', '13-JAN-20');
 INSERT INTO design
-VALUES(11672, 27889, '2020-01-09', '2020-01-23');
+VALUES(12001, 27889, '09-JAN-20', '23-JAN-20');
