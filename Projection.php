@@ -58,7 +58,7 @@ body{
 
     <h2>Result</h2>
 
-    <form method="GET" action="Projection_page.php">
+    <form method="GET" action="Projection.php">
         <!--refresh page when submitted-->
         <input type="submit" value="List all Matchmakers' Name" name="display_result"></p>
     </form>
@@ -250,7 +250,7 @@ body{
             disconnectFromDB();
         }
     } else if (isset($_POST['DEMO_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~lyuchenh/Marriage/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
         exit;
     }
     ?>
