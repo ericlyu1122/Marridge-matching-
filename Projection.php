@@ -19,7 +19,16 @@
 <html>
 
 <html>
-
+<style>
+body {
+  background-image: url('backgroup_ocean.jpg');
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
 <body>
 
     <h1 assign="center" style="color:white;font-size:40px"> CPSC 304 PHP/Oracle Demonstration</h1>
