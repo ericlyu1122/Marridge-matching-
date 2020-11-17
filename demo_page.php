@@ -3,6 +3,28 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+            function opentab(evt, tabname) {
+                    // Declare all variables
+                var i, tabcontent, tablinks;
+
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(tabname).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+    </script>
     <style>
 
         body,
@@ -53,71 +75,108 @@
             text-align: center;
         }
 
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
+        
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #FFEFD5;
+            }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
             border: none;
-        }
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 5px 12px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
+        /* Change background color of buttons on hover */
+        .tab button:hover {
             background-color: #ddd;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
         }
 
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
         }
     </style>
 </head>
 
 <body style="color:white;">
+<div class="tab">
+  <button class="tablinks" onclick="opentab(event, 'Reset')">Reset</button>
+  <button class="tablinks" onclick="opentab(event, 'Insert')">Insert</button>
+  <button class="tablinks" onclick="opentab(event, 'Delete')">Delete</button>
+    <button class="tablinks" onclick="opentab(event, 'Update')">Update</button>
+    <button class="tablinks" onclick="opentab(event, 'Selection')">Selection</button>
+    <button class="tablinks" onclick="opentab(event, 'Projection')">Projection</button>
+    <button class="tablinks" onclick="opentab(event, 'Join')">Join</button>
+    <button class="tablinks" onclick="opentab(event, 'Aggregation Having')">Aggregation Having</button>
+    <button class="tablinks" onclick="opentab(event, 'Nested Aggregation')">Nested Aggregation</button>
+    <button class="tablinks" onclick="opentab(event, 'Aggregation Group By')">Aggregation Group By</button>
+    <button class="tablinks" onclick="opentab(event, 'Division')">Division</button>
 
-    <div class="dropdown">
-        <button class="dropbtn">Select Operation</button>
-        <div class="dropdown-content">
-            <!-- <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/reset.php">Reset</a></p> -->
+</div>
 
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php">Insert</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php">Delete</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php">Update</a></p>
+<!-- Tab content -->
+<div id="Reset" class="tabcontent">
+  <h3> Reset</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/reset.php" </p>
+</div>
+<div id="Insert" class="tabcontent">
+  <h3> Insert</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php" </p>
+</div>
+<div id="Delete" class="tabcontent">
+  <h3> Delete</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php" </p>
+</div>
+<div id="Update" class="tabcontent">
+  <h3> Update</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php" </p>
+</div>
+<div id="Selection" class="tabcontent">
+  <h3> Selection</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php" </p>
+</div>
+<div id="Projection" class="tabcontent">
+  <h3> Projection</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php" </p>
+</div>
+<div id="Join" class="tabcontent">
+  <h3> Join</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php" </p>
+</div>
+<div id="Aggregation Having" class="tabcontent">
+  <h3> Aggregation Having</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php" </p>
+</div>
+<div id="Nested Aggregation" class="tabcontent">
+  <h3> Nested Aggregation</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php" </p>
+</div>
+<div id="Aggregation Group By" class="tabcontent">
+  <h3> Aggregation Group By</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php" </p>
+</div>
+<div id="Division" class="tabcontent">
+  <h3> Division</h3>
+  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php" </p>
+</div>
 
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php">Selection</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php">Projection</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php">Join</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php">Aggregation Having</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php">Nested Aggregation</a></p>
- 
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php">Aggregation Group By</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php">Division</a></p>
-            
-        </div>
-    </div>
+
+
 
     <div class="bg-image"></div>
 
@@ -126,7 +185,7 @@
 
         <form method="POST" action="demo_page.php">
             <!--refresh page when submitted-->
-            <input type="submit" value="BACK TO COVER PAGE" name="START_redirect"></p>
+            <input type="submit" value="Back to Cover Page" name="START_redirect"></p>
         </form>
     </div>
 
