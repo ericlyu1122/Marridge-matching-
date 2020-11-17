@@ -16,13 +16,12 @@
             box-sizing: border-box;
         }
 
-        .bg-image {
+        body{
             /* The image used */
             background-image: url("backgroup_ocean.jpg");
 
             /* Add the blur effect */
-            filter: blur(3px);
-            -webkit-filter: blur(3px);
+            
 
             /* Full height */
             height: 100%;
@@ -52,7 +51,7 @@
 
 
     .marginauto {
-        margin: 10px auto 20px;
+        margin: 5px auto 10px;
         display: block;
     }
     </style>
@@ -60,7 +59,6 @@
 
 <body>
 
-    <div class="bg-image"></div>
 <div>
     <img class="marginauto" src="marriage-Greece.jpg" alt="centered image" />
 </div>
