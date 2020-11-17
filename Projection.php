@@ -20,7 +20,7 @@
 
 <html>
 <style>
-.bg-image {
+body{
   background-image: url('backgroup_ocean.jpg');
   filter: blur(3px);
   -webkit-filter: blur(3px);
@@ -37,11 +37,6 @@
 
 </html>
 
-<body>
-
-    <div class="bg-image"></div>
-
-</body>
 
 <head>
     <title>CPSC 304 PHP/Oracle Demonstration</title>
