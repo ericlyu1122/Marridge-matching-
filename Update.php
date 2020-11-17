@@ -21,7 +21,7 @@
         <hr />
 
         <h2>Display the Tuples in Customer_advises Table</h2>
-        <form method="POST" action="Update.php"> <!--refresh page when submitted-->
+        <form method="GET" action="Update.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
@@ -103,13 +103,13 @@
         function printResult($result) { //prints results from a select statement
             echo "<br>Retrieved data from table Customer_advises:<br>";
             echo "<table>";
-            echo "<tr><th>MemberID</th><th>Occupation</th><th>Birthday</th><th>Age</th><th>Customer Name</th><th>Acess to other customer's profile</th><th>Designated matchmaker's EmpolyeeID</th></tr>";
+            echo "<tr><th>MemberID </th><th>Occupation </th><th>Birthday </th><th>Age </th><th>Customer Name </th><th>AccessToOthersProfile </th><th>Designated matchmaker's EmpolyeeID </th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-               echo "<tr><td>" . $row["MemberID"] . "</td><td>" . $row["Occupation"] 
-               ."</td><td>" . $row["Birthday"] ."</td><td>" . $row["Age"]
-               ."</td><td>" . $row["C_name"]."</td><td>" . $row["AccessToOthersProfile"]
-               ."</td><td>" . $row["EmpolyeeID"] ."</td></tr>"; 
+               echo "<tr><td>" .$row[0]. "</td><td>" .$row[1]. 
+               "</td><td>" .$row[2]."</td><td>" .$row[3].
+               "</td><td>" .$row[4]."</td><td>" .$row[5].
+               "</td><td>" .$row[6]."</td></tr>"; 
             }
 
             echo "</table>";
@@ -156,7 +156,7 @@
             global $db_conn;
 
             // need the wrap the old name and new name values with single quotations
-            executePlainSQL("UPDATE Customer_advises SET C_name = '{$_POST['newName']}' WHERE MemberID = {$_POST['memberID']}");
+            executePlainSQL("UPDATE Customer_advises SET C_name = '{$_POST['newName']}' WHERE MemberID = '{$_POST['memberID']}'");
             OCICommit($db_conn);
         }
             
