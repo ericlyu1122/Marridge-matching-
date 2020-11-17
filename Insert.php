@@ -165,7 +165,7 @@
              global $db_conn;
     
         executePlainSQL("INSERT INTO Has_Manager values ({$_POST['val0']}, '{$_POST['val1']}', '{$_POST['val2']}', '{$_POST['val3']}', 
-                            {$_POST['val4']}");
+                            {$_POST['val4']})");
         OCICommit($db_conn);
         }
             
