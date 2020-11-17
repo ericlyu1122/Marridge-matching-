@@ -223,13 +223,13 @@ body{
             array_push($projectionList, 'Rate, ');
         }
         if (isset($_GET['chval3'])) {
-            array_push($projectionList, 'ManagerID ');
+            array_push($projectionList, 'ManagerID, ');
         }
 
         foreach ($projectionList as $e) {
             $query = $query . $e;
         }
-        $query = substr($query, 0, -2);
+        $query = substr($query, 0, -9);
         $query = $query . " FROM Matchmaker_manage";
         if (count($projectionList) == 0) {
             $query = "SELECT * FROM Matchmaker_manage";
