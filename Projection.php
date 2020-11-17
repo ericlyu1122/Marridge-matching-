@@ -20,7 +20,7 @@
 
 <html>
 <style>
-body {
+.bg-image {
   background-image: url('backgroup_ocean.jpg');
   filter: blur(3px);
   -webkit-filter: blur(3px);
@@ -39,7 +39,7 @@ body {
 
 <body>
 
-    <img src="marriage-Greece.jpg" alt="war image" width="500" height="600">
+    <div class="bg-image"></div>
 
 </body>
 
