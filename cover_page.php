@@ -53,6 +53,8 @@
     .marginauto {
         margin: 5px auto 10px;
         display: block;
+        height: 50%; 
+        width: 50%;
     }
     </style>
 </head>
