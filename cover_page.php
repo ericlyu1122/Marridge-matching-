@@ -87,7 +87,7 @@
 
     if (isset($_POST['START_redirect'])) {
         
-        header('Location: https://www.students.cs.ubc.ca/~lyuchenh/Marriage/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
         exit;
     }
     ?>
