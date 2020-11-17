@@ -22,8 +22,6 @@
 <style>
 body{
   background-image: url('backgroup_ocean.jpg');
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -38,11 +36,11 @@ body{
 </html>
 
 
-<head>
+<head style="color:white;">
     <title>CPSC 304 PHP/Oracle Demonstration</title>
 </head>
 
-<body>
+<body style="color:white;">
     <h2>Projection on Matchmakers </h2>
     <p>List all Matchmakers Names in MatchMaker_manage</p>
     <form method="GET" action="Projection.php">
@@ -229,7 +227,7 @@ body{
         foreach ($projectionList as $e) {
             $query = $query . $e;
         }
-        $query = substr($query, 0, -9);
+        $query = substr($query, 0, -2);
         $query = $query . " FROM Matchmaker_manage";
         if (count($projectionList) == 0) {
             $query = "SELECT * FROM Matchmaker_manage";
