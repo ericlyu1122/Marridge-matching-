@@ -18,29 +18,29 @@
 
 <html>
 
-<html>
 <style>
+head {
+    color:white;
+    font-size:40px;
+}
 body{
   background-image: url('backgroup_ocean.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+  color:white;
+  font-size:25px;
+}
+body form{
+    font-size:20px;
 }
 </style>
-<body>
 
-    <h1 assign="center" style="color:white;font-size:40px"> CPSC 304 PHP/Oracle Demonstration</h1>
-
-</body>
-
-</html>
-
-
-<head style="color:white;">
+<head>
     <title>CPSC 304 PHP/Oracle Demonstration</title>
 </head>
 
-<body style="color:white;">
+<body>
     <h2>Projection on Matchmakers </h2>
     <p>List all Matchmakers Names in MatchMaker_manage</p>
     <form method="GET" action="Projection.php">

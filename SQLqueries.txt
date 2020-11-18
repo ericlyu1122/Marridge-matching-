@@ -1,0 +1,20 @@
+-Nested aggregation:
+Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
+WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
+            FROM Customer_advises  
+            GROUP BY Occupation) 
+SELECT tmp.Occupation, tmp.minage
+FROM tmp
+WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp);
+
+-Division:
+Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
+SELECT mmsc.Name_MSC
+FROM Manage_MSC mmsc 
+WHERE NOT EXISTS 
+    ((SELECT hm.ManagerID 
+      FROM Has_Manager hm) 
+     MINUS
+    (SELECT hm2.ManagerID
+     FROM Has_Manager hm2 
+     WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
