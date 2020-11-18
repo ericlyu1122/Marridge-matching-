@@ -133,46 +133,101 @@
 <div id="Reset" class="tabcontent">
   <h3> Reset</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/reset.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Reset" name="RES_redirect"></p>
+</form>
 </div>
+
 <div id="Insert" class="tabcontent">
   <h3> Insert</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Insert" name="INS_redirect"></p>
+</form>
 </div>
+
 <div id="Delete" class="tabcontent">
   <h3> Delete</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Delete" name="DEL_redirect"></p>
+</form>
 </div>
+
 <div id="Update" class="tabcontent">
   <h3> Update</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Update" name="UPD_redirect"></p>
+</form>
 </div>
+
 <div id="Selection" class="tabcontent">
   <h3> Selection</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Selection" name="SEL_redirect"></p>
+</form>
 </div>
+
 <div id="Projection" class="tabcontent">
   <h3> Projection</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Projection" name="PROJ_redirect"></p>
+</form>
 </div>
+
 <div id="Join" class="tabcontent">
   <h3> Join</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Join" name="JOIN_redirect"></p>
+</form>
 </div>
+
 <div id="Aggregation Having" class="tabcontent">
   <h3> Aggregation Having</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Aggregation Having" name="AGGH_redirect"></p>
+</form>
 </div>
+
 <div id="Nested Aggregation" class="tabcontent">
   <h3> Nested Aggregation</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Aggregation Group By" name="AGN_redirect"></p>
+</form>
 </div>
+
+
 <div id="Aggregation Group By" class="tabcontent">
   <h3> Aggregation Group By</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Aggregation Group By" name="AGGB_redirect"></p>
+</form>
 </div>
+
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
   <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php" </p>
+<form method="POST" action="demo_page.php">
+    <!--refresh page when submitted-->
+    <input type="submit" value="Go to Division" name="DIV_redirect"></p>
+</form>
 </div>
 
 
@@ -195,6 +250,39 @@
 
     if (isset($_POST['START_redirect'])) {
         header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php');
+        exit;
+    }elseif(isset($_POST['DIV_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php');
+        exit;
+    }elseif(isset($_POST['AGGB_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php');
+        exit;
+    }elseif(isset($_POST['AGN_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php');
+        exit;
+    }elseif(isset($_POST['AGGH_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php');
+        exit;
+    }elseif(isset($_POST['JOIN_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php');
+        exit;
+    }elseif(isset($_POST['PROJ_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php');
+        exit;
+    }elseif(isset($_POST['SEL_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php');
+        exit;
+    }elseif(isset($_POST['UPD_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php');
+        exit;
+    }elseif(isset($_POST['DEL_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php');
+        exit;
+    }elseif(isset($_POST['INS_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php');
+        exit;
+    }elseif(isset($_POST['RES_redirect'])){
+        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/reset.php');
         exit;
     }
 
