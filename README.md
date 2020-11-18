@@ -11,15 +11,14 @@ websites examples:
 
 ## Todo
 1. 
-- demo_page.php(写完从demo_page到其他pages的链接方式， 并且把cover_page.php里到demo_page的链接改一下）
+- demo_page.php(需要修一下）
 - Join.php
 - Aggregation_groupby.php
 - Aggregation_having.php
-- NestedAggregation.php
-- Division.php
+
 
 2. report:https://docs.google.com/document/d/1jy3oBjd42aGouOZSbqut6DPbmPN7oSjDSC4Piw7DrHY/edit
 
-3. A list of all SQL queries used: query.txt
+3. A list of all SQL queries used: SQLQuries.txt
 
 4. Several screenshots
