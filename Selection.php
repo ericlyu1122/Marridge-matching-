@@ -16,6 +16,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
             <select name="type">
                <option value="Name_MSC">Name_MSC</option>
                <option value="CEO">CEO</option>
+                <option value="Name_m">Name_m</option>
                <option value="ManagerID">ManagerID</option>
                <option value="Workforce">Workforce</option>
             </select>
