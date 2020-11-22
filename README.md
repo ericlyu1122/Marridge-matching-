@@ -12,7 +12,6 @@ websites examples:
 ## Todo
 1. 
 - demo_page.php(需要修一下）
-- Join.php
 - Aggregation_groupby.php
 - Aggregation_having.php
 
