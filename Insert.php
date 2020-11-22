@@ -27,6 +27,11 @@
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
+
+        <hr />
+        <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
+                <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
+        </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
 
