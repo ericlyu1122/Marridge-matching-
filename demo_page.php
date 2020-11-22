@@ -237,11 +237,12 @@
 
     <div class="bg-text">
         <h1 style="font-size:50px;color:white;">Marriage Matching Corporation</h1>
-
+        <p>
         <form method="POST" action="demo_page.php">
             <!--refresh page when submitted-->
             <input type="submit" value="Back to Cover Page" name="START_redirect"></p>
         </form>
+        </p>
     </div>
 
 
