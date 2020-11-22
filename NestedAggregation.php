@@ -19,15 +19,15 @@
 <html>
     <style>
         head {
-            color:white;
+
             font-size:40px;
         }
         body{
-        background-image: url('backgroup_ocean.jpg');
+        background-image: url('background_ocean.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
-        color:white;
+
         font-size:25px;
         }
         body form{
