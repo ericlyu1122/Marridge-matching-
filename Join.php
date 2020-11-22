@@ -10,10 +10,6 @@
         <h2>Join Has_Manager table with Matchmaker_manage table</h2>
         <form method="POST" action="Join.php"> <!--refresh page when submitted-->
             <select name="atable">
-               <option value="Name_MSC">Name_MSC</option>
-               <option value="CEO">CEO</option>
-               <option value="Name_m">Name_m</option>
-               <option value="ManagerID">ManagerID</option>
                <option value="Workforce">Workforce</option>
             </select>
             operator <input type="text" name="operator"> value <input type="text" name="value">
