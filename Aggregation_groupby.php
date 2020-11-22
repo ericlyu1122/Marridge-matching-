@@ -91,7 +91,6 @@
                 echo htmlentities($e['message']);
                 $success = False;
             }
-
             return $statement;
         }
 
