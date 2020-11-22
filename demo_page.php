@@ -133,7 +133,8 @@
 
 <div id="Insert" class="tabcontent">
   <h3> Insert</h3>
-  <p>  </p>
+  <p> <font size="2" face="Lucida Console" color="black"> Insert a value into the Has_Manager Table 
+      Insert INTO Has_Manager VALUES(123, "Huang's Marriage.Co","Steven Huang",	"Patrick Huang",20	")</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Insert" />  
@@ -142,7 +143,8 @@
 
 <div id="Delete" class="tabcontent">
   <h3> Delete</h3>
-  <p>  </p>
+  <p> <font size="2" face="Lucida Console" color="black"> 
+    Delete FROM Has_Manager WHERE ManagerID=123</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Delete" />  
@@ -151,7 +153,13 @@
 
 <div id="Update" class="tabcontent">
   <h3> Update</h3>
-  <p>  </p>
+  <p> <font size="2" face="Lucida Console" color="black"> 
+   Select values from the Customer_advises Table: 
+      UPDATE 
+      FROM Customer_advises
+      SET Name= Eric Lyu
+      WHERE MemberID = 22331
+ </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Update" />  
@@ -160,7 +168,13 @@
 
 <div id="Selection" class="tabcontent">
   <h3> Selection</h3>
-  <p>  </p>
+  <p> <font size="2" face="Lucida Console" color="black"> 
+   Select values from the Has_Manager Table: 
+      SELECT * 
+      FROM Has_Manager
+      WHERE workforce > 10
+
+    </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Selection" />  
@@ -183,7 +197,11 @@
 
 <div id="Join" class="tabcontent">
   <h3> Join</h3>
-  <p>  </p>
+  <p> <font size="2" face="Lucida Console" color="black"> 
+      Join the Has_Manager table with Matchmaker_manage table and user can choose the workforce
+      SELECT * FROM Has_Manager H, Matchmaker_manage M 
+      WHERE workforce > 10 AND H.ManagerID = M.ManagerID
+      </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Join" />  
