@@ -24,3 +24,15 @@ Find the maximum age for each occupations:
 SELECT Occupation,MAX(age) AS maxage
 FROM Customer_advises 
 GROUP BY Occupation;
+
+-Projection:
+List all Matchmakers Names in MatchMaker_manage
+     SELECT name
+     FROM MatchMaker_manage;
+     
+-Aggregation Having
+Find the maximum age for each occupations where there have more than one person: 
+SELECT Occupation,MAX(age) AS maxage
+FROM Customer_advises 
+GROUP BY Occupation
+HAVING COUNT(*)>1;
