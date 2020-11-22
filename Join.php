@@ -12,7 +12,7 @@
     </style>
     <head>
         <title>Join Request</title>
-        <h1></h1>
+        <h1>Join Request</h1>
     </head>
 
     <body>

@@ -14,6 +14,7 @@
 
 <head>
     <title>CPSC 304 PHP/Oracle Demonstration</title>
+     <h1>Projection Request</h1>
 </head>
 
 <body>
@@ -24,27 +25,25 @@
         <input type="hidden" id="requestProjection" name="requestProjection">
         EmpolyeeID: <input type="checkbox" name="chval0"> <br /><br />
         name: <input type="checkbox" name="chval1"> <br /><br />
-        rate(star): <input type="checkbox" name="chval2"> <br /><br />
+        Rate: <input type="checkbox" name="chval2"> <br /><br />
         ManagerID: <input type="checkbox" name="chval3"> <br /><br />
 
 
-        <input type="submit" value="clickProjection" name="clickProjection"></p>
+        <input type="submit" value="click Projection" name="clickProjection"></p>
     </form>
 
     <hr />
     <h2>Result</h2>
-
     <form method="GET" action="Projection.php">
         <!--refresh page when submitted-->
-        <input type="submit" value="List all Matchmakers' Name" name="display_result"></p>
+        <input type="submit" value="DisplayTuples" name="display_result"></p>
     </form>
     
-     <hr />
+    <hr />
     <form method="POST" action="demo_page.php">
         <!--refresh page when submitted-->
         <input type="submit" value="Back to Main Page" name="DEMO_redirect"></p>
     </form>
-
 
     <?php
     //this tells the system that it's no longer just parsing html; it's now parsing PHP
@@ -188,7 +187,7 @@
         $projectionList = array();
         $query = "SELECT ";
         if (isset($_GET['chval0'])) {
-            array_push($projectionList, 'EmpolyeeID, ');
+            array_push($projectionList, 'EmployeeID, ');
         }
         if (isset($_GET['chval1'])) {
             array_push($projectionList, 'E_name, ');

@@ -15,7 +15,7 @@
 
     <head>
         <title>Insert Request</title>
-        <h1></h1>
+        <h1>Insert Request</h1>
     </head>
 
     <body>

@@ -12,8 +12,8 @@
         }
     </style>
     <head>
-        <title>Insert Request</title>
-        <h1> </h1>
+        <title>Update Request</title>
+        <h1> Update Request</h1>
     </head>
 
     <body>
@@ -24,7 +24,14 @@
         <form method="POST" action="Update.php"> <!--refresh page when submitted-->
             <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
             MemberID: <input type="text" name="memberID"> <br /><br />
-            New Name: <input type="text" name="newName"> <br /><br />
+            
+            <select name="field">
+               <option value="C_name">newName</option> 
+                <option value="Occupation">newOccupation</option> 
+               <option value="AccessToOthersProfile">newAccess</option> 
+               <option value="Birthday">newBrithday</option>
+            </select>
+            <input type="text" name="newValue"> <br /><br />
 
             <input type="submit" value="Update" name="updateSubmit"></p>
         </form>
@@ -156,22 +163,14 @@
         }
 
 
-        function handleResetRequest() {
-            global $db_conn;
-            // Drop old table
-            executePlainSQL("DROP TABLE Has_Manager");
-
-            // Create new table
-            echo "<br> creating new table <br>";
-            executePlainSQL("CREATE TABLE Has_Manager (ManagerID int PRIMARY KEY, Name_MSC char(20) NOT NULL,CEO char(20) NOT NULL,Name_m char(20),Workforce int)");
-            OCICommit($db_conn);
-        }
+    
 
         function handleUpdateRequest() {
             global $db_conn;
 
             // need the wrap the old name and new name values with single quotations
-            executePlainSQL("UPDATE Customer_advises SET C_name = '{$_POST['newName']}' WHERE MemberID = '{$_POST['memberID']}'");
+           
+            executePlainSQL("UPDATE Customer_advises SET {$_POST['field']} = '{$_POST['newValue']}' WHERE MemberID = '{$_POST['memberID']}'");
             OCICommit($db_conn);
         }
             

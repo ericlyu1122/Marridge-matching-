@@ -14,6 +14,7 @@
 
     <head>
         <title>Delete Request</title>
+        <h1>Delete Request</h1>
     </head>
 
     <body>

@@ -14,10 +14,11 @@
 
     <head >
         <title>CPSC 304 PHP/Oracle Demonstration</title>
+        <h1>Nested Aggregation Request</h1>
     </head>
 
     <body>
-        <h2>Nested Aggregation </h2>
+        <h2>Nested Aggregation on Customer_advises table </h2>
         <form method="GET" action="NestedAggregation.php">
             <input type="hidden" id="requestNestedAgg" name="requestNestedAgg">
             Find those occupations for which their minimum age is strictly below the average of the minimum age over all occupations.<br /><br />
