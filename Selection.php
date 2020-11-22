@@ -1,7 +1,17 @@
 <html>
+    <style>
+        head {
+            font-size:40px;
+        }
+        body{
+        background-image: url('background_ocean.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+    </style>
     <head>
-        <title>Selection Request</title>
-        
+        <title>Selection Request</title>    
     </head>
 
     <body>
@@ -27,9 +37,9 @@
         </form>
     
         <hr />
-         <form method="POST" action="Selection.php">
-        <input type="ReturnToDemo" value="DemoPage" name="DEMO_redirect">
-                  </form>
+        <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
+                <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
+        </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
 
@@ -171,9 +181,10 @@
                 disconnectFromDB();
             }
         } else if (isset($_POST['DEMO_redirect'])) {
-            header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
+            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
             exit;
         } 
+
         ?>
     </body>
 </html>

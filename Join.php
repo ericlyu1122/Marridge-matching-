@@ -1,4 +1,15 @@
 <html>
+    <style>
+        head {
+            font-size:40px;
+        }
+        body{
+        background-image: url('background_ocean.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+    </style>
     <head>
         <title>Join Request</title>
         <h1></h1>
@@ -9,10 +20,8 @@
 
         <h2>Join Has_Manager table with Matchmaker_manage table</h2>
         <form method="POST" action="Join.php"> <!--refresh page when submitted-->
-            <select name="atable">
-               <option value="Workforce">Workforce</option>
-            </select>
-            operator <input type="text" name="operator"> value <input type="text" name="value">
+            
+           Workforce operator(<,>,= etc.) <input type="text" name="operator"> value <input type="text" name="value">
         
             <input type="submit" value="JoinButton" name="joinSubmit"></p>
         </form>
