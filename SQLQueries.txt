@@ -18,3 +18,9 @@ WHERE NOT EXISTS
     (SELECT hm2.ManagerID
      FROM Has_Manager hm2 
      WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
+
+-Aggregation with Group By:
+Find the maximum age for each occupations: 
+SELECT Occupation,MAX(age) AS maxage
+FROM Customer_advises 
+GROUP BY Occupation;
