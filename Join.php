@@ -37,6 +37,16 @@
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
+
+         <hr />
+         
+          <h2>Display the Tuples in Matchmaker_manage Table</h2>
+        <form method="GET" action="Join.php"> <!--refresh page when submitted-->
+            <input type="submit" id="displayTupleRequest2" name="displayTupleRequest2">
+    
+        </form>
+    
+        </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
 
@@ -205,6 +215,16 @@
                 printResult($result);
                 
             }
+        
+        function handledisplayRequest2() {
+                global $db_conn;
+
+                $result = executePlainSQL("SELECT * FROM Mathchmaker_manage");
+                printResult($result);
+                
+            }
+
+       
 
         // HANDLE ALL POST ROUTES
     // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
@@ -229,6 +249,12 @@
         } else if(isset($_POST['joinSubmit'])){
             if(connectToDB()){
                 handleJoinRequest();
+                disconnectFromDB();
+            }
+        }
+        else if(isset($_GET['displayTupleRequest2'])){
+              if(connectToDB()) {
+                handledisplayRequest2();
                 disconnectFromDB();
             }
         }
