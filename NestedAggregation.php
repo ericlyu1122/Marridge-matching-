@@ -26,7 +26,7 @@
 
         <hr />
         <h2 class="sub_title">Display the Tuples in Customer_advises Table</h2>
-        <form method="GET" action="Aggregation_groupby.php"> <!--refresh page when submitted-->
+        <form method="GET" action="NestedAggregation.php"> <!--refresh page when submitted-->
             <input type="submit" value="displayTuples" name="displayTupleRequest">
         </form>
 

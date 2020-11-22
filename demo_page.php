@@ -105,7 +105,6 @@
 
         /* Style the tab content */
         .tabcontent {
-            display: none;
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
@@ -132,12 +131,12 @@
 
 
 <div id="Insert" class="tabcontent">
-  <h3> Insert</h3>
+  <h3><font size="3" face="Lucida Console" color="black"> Insert</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-  Insert a value into the Has_Manager Table: 
-    Insert
-    INTO Has_Manager
-    VALUES(123, "Huang's Marriage.Co","Steven Huang","Patrick Huang",20	")</p>
+  Insert tuples into the Has_Manager Table:
+    <br>    INSERT
+    <br>    INTO Has_Manager
+    <br>    VALUES(123, "Huang's Marriage.Co","Steven Huang","Patrick Huang",20	")</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Insert" />  
@@ -148,9 +147,9 @@
   <h3> Delete</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
   Delete tuples in the Has_Manager Table:  
-    Delete
-    FROM Has_Manager 
-    WHERE ManagerID=123</p>
+    <br>    Delete
+    <br>    FROM Has_Manager 
+    <br>    WHERE ManagerID=123</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Delete" />  
@@ -161,10 +160,10 @@
   <h3> Update</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
    Update values in the Customer_advises Table:  
-      UPDATE
-      FROM Customer_advises
-      SET Name= Eric Lyu
-      WHERE MemberID = 22331
+      <br>  UPDATE
+      <br>  FROM Customer_advises
+      <br>  SET Name= Eric Lyu
+      <br>  WHERE MemberID = 22331
  </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php">
     <!--refresh page when submitted-->
@@ -176,9 +175,9 @@
   <h3> Selection</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
    Select values from the Has_Manager Table: 
-      SELECT * 
-      FROM Has_Manager
-      WHERE workforce > 10
+      <br>  SELECT * 
+      <br>  FROM Has_Manager
+      <br>  WHERE workforce > 10
 
     </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php">
@@ -191,8 +190,8 @@
   <h3> Projection</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
     List all Matchmakers' name in MatchMaker_manage
-     SELECT name
-     FROM MatchMaker_manage
+     <br>   SELECT name
+     <br>   FROM MatchMaker_manage
 
     </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php">
@@ -205,9 +204,9 @@
   <h3> Join</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
       Join the Has_Manager table with Matchmaker_manage table and user need to provide an operator and a number to qualify Workforce in the WHERE clause:
-      SELECT * 
-      FROM Has_Manager H, Matchmaker_manage M 
-      WHERE workforce > 10 AND H.ManagerID = M.ManagerID
+      <br>  SELECT * 
+      <br>  FROM Has_Manager H, Matchmaker_manage M 
+      <br>  WHERE workforce > 10 AND H.ManagerID = M.ManagerID
       </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php">
     <!--refresh page when submitted-->
@@ -219,10 +218,10 @@
   <h3> Aggregation Having</h3>
   <p> <font size="2" face="Lucida Console" color="black">
       Find the maximum age for each occupations where there have more than one person: 
-SELECT Occupation,MAX(age) AS maxage
-FROM Customer_advises 
-GROUP BY Occupation
-HAVING COUNT(*)>1;
+        <br>    SELECT Occupation,MAX(age) AS maxage
+        <br>    FROM Customer_advises 
+        <br>    GROUP BY Occupation
+        <br>    HAVING COUNT(*)>1;
       </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php">
     <!--refresh page when submitted-->
@@ -234,12 +233,12 @@ HAVING COUNT(*)>1;
   <h3> Nested Aggregation</h3>
    <p> <font size="2" face="Lucida Console" color="black"> 
        Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
-WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
-            FROM Customer_advises  
-            GROUP BY Occupation) 
-SELECT tmp.Occupation, tmp.minage
-FROM tmp
-WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
+    <br>WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
+    <br>            FROM Customer_advises  
+    <br>            GROUP BY Occupation) 
+    <br>SELECT tmp.Occupation, tmp.minage
+    <br>FROM tmp
+    <br>WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp) </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Nested Aggregation" />  
@@ -251,9 +250,9 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
   <h3> Aggregation with Group By</h3>
   <p> <font size="2" face="Lucida Console" color="black">
     Find the maximum age for each occupation in Customer_advises table: 
-        SELECT Occupation,MAX(age) AS maxage
-        FROM Customer_advises 
-        GROUP BY Occupation;
+        <br>    SELECT Occupation,MAX(age) AS maxage
+        <br>    FROM Customer_advises 
+        <br>    GROUP BY Occupation;
      </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php">
     <!--refresh page when submitted-->
@@ -263,18 +262,17 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
-  <p> <font size="2" face="Lucida Console" color="black"> -Division:
+  <p> <font size="2" face="Lucida Console" color="black"> 
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
-
-    SELECT mmsc.Name_MSC
-    FROM Manage_MSC mmsc 
-    WHERE NOT EXISTS 
-        ((SELECT hm.ManagerID 
-        FROM Has_Manager hm) 
-        MINUS
-        (SELECT hm2.ManagerID
-        FROM Has_Manager hm2 
-        WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
+    <br>SELECT mmsc.Name_MSC
+    <br>FROM Manage_MSC mmsc 
+    <br>WHERE NOT EXISTS 
+        <br>    ((SELECT hm.ManagerID 
+        <br>    FROM Has_Manager hm) 
+        <br>    MINUS
+        <br>    (SELECT hm2.ManagerID
+        <br>    FROM Has_Manager hm2 
+        <br>    WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
         
    <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php">
     <!--refresh page when submitted-->

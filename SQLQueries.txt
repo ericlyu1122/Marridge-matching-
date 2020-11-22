@@ -1,14 +1,15 @@
 -Insertion:
-    Insert
+Insert tuples into the Has_Manager Table: 
+    INSERT
     INTO Has_Manager
     VALUES(123, "Huang's Marriage.Co","Steven Huang","Patrick Huang",20	")
 
 -Update:
 Update values in the Customer_advises Table:  
-      UPDATE
-      FROM Customer_advises
-      SET Name= Eric Lyu
-      WHERE MemberID = 22331
+    UPDATE
+    FROM Customer_advises
+    SET Name= Eric Lyu
+    WHERE MemberID = 22331
 
 -Delete:
 Delete tuples in the Has_Manager Table:  
@@ -17,19 +18,20 @@ Delete tuples in the Has_Manager Table:
     WHERE ManagerID=123
 -Selection:
 Select values from the Has_Manager Table: 
-      SELECT * 
-      FROM Has_Manager
-      WHERE workforce > 10
+    SELECT * 
+    FROM Has_Manager
+    WHERE workforce > 10
+
 -Projection:
 List all Matchmakers' name in MatchMaker_manage
-     SELECT name
-     FROM MatchMaker_manage
+    SELECT name
+    FROM MatchMaker_manage
 
 -Join:
 Join the Has_Manager table with Matchmaker_manage table and user need to provide an operator and a number to qualify Workforce in the WHERE clause:
-      SELECT * 
-      FROM Has_Manager H, Matchmaker_manage M 
-      WHERE workforce > 10 AND H.ManagerID = M.ManagerID
+    SELECT * 
+    FROM Has_Manager H, Matchmaker_manage M 
+    WHERE workforce > 10 AND H.ManagerID = M.ManagerID
 
 -Nested aggregation:
 Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
@@ -42,15 +44,15 @@ Find those occupations for which thier minimum age is strictly below the average
 
 -Division:
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
-SELECT mmsc.Name_MSC
-FROM Manage_MSC mmsc 
-WHERE NOT EXISTS 
-    ((SELECT hm.ManagerID 
-      FROM Has_Manager hm) 
-     MINUS
-    (SELECT hm2.ManagerID
-     FROM Has_Manager hm2 
-     WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
+    SELECT mmsc.Name_MSC
+    FROM Manage_MSC mmsc 
+    WHERE NOT EXISTS 
+      ((SELECT hm.ManagerID 
+        FROM Has_Manager hm) 
+        MINUS
+      (SELECT hm2.ManagerID
+        FROM Has_Manager hm2 
+        WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
 
 -Aggregation with Group By:
 Find the maximum age for each occupation in Customer_advises table: 
