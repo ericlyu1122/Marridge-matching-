@@ -31,7 +31,7 @@
                <option value="E_name">E_name</option>
                <option value="Rate">Rate</option>
                <option value="ManagerID">ManagerID</option>
-            </select>
+            </select><br /><br />
 
 
             <input type="submit" value="JoinButton" name="joinSubmit"></p>
@@ -200,7 +200,7 @@
         function handleJoinRequest() {
              global $db_conn;
     
-        $result=executePlainSQL("SELECT * FROM {$_POST['atable']} natural join {$_POST['btable']}");
+        $result=executePlainSQL("SELECT * FROM Has_Manager natrual join Matchmaker_manage WHERE {$_POST['atable']} = {$_POST['btale']}");
         printJoinResult($result);
         OCICommit($db_conn);
         }
