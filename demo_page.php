@@ -221,7 +221,7 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
-  <p> -Division:
+  <p> <font size="5" face="Lucida Console" color="black"> -Division:
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
 SELECT mmsc.Name_MSC
 FROM Manage_MSC mmsc 
@@ -259,45 +259,6 @@ WHERE NOT EXISTS
     </div>
 
 
-
-    <?php
-
-    if (isset($_POST['START_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php');
-        exit;
-    }elseif(isset($_POST['DIV_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php');
-        exit;
-    }elseif(isset($_POST['AGGB_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php');
-        exit;
-    }elseif(isset($_POST['AGN_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php');
-        exit;
-    }elseif(isset($_POST['AGGH_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php');
-        exit;
-    }elseif(isset($_POST['JOIN_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php');
-        exit;
-    }elseif(isset($_POST['PROJ_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php');
-        exit;
-    }elseif(isset($_POST['SEL_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php');
-        exit;
-    }elseif(isset($_POST['UPD_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php');
-        exit;
-    }elseif(isset($_POST['DEL_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php');
-        exit;
-    }elseif(isset($_POST['INS_redirect'])){
-        header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php');
-        exit;
-    }
-
-    ?>
 </body>
 
 </html>
