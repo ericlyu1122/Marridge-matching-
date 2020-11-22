@@ -8,4 +8,6 @@ Group members: Eric Lyu, Steven Huang, Zoey Li
 - Project website:
     https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php
 - Project report: 
-    https://docs.google.com/document/d/1jy3oBjd42aGouOZSbqut6DPbmPN7oSjDSC4Piw7DrHY/edit
+    CPSC 304_M3_group8.pdf
+
+    (Google Doc)https://docs.google.com/document/d/1jy3oBjd42aGouOZSbqut6DPbmPN7oSjDSC4Piw7DrHY/edit
