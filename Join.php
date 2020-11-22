@@ -25,7 +25,7 @@
 
         <h2>Display the Tuples in Has_Manager Table</h2>
         <form method="GET" action="Join.php"> <!--refresh page when submitted-->
-            <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
+            <input type="submit" value="displayTuples" name="displayTupleRequest">
     
         </form>
 
@@ -33,11 +33,11 @@
          
           <h2>Display the Tuples in Matchmaker_manage Table</h2>
         <form method="GET" action="Join.php"> <!--refresh page when submitted-->
-            <input type="submit" id="displayTupleRequest2" name="displayTupleRequest2">
+            <input type="submit" value="displayTuples" name="displayTupleRequest2">
     
         </form>
        <form method="POST" action="Join.php"> <!--refresh page when submitted-->
-            <input type="submit" id="Back To DemoPage" name="DEMO_redirect">
+            <input type="submit" value="Back To DemoPage" name="DEMO_redirect">
         </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
