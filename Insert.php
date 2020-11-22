@@ -1,5 +1,18 @@
 
 <html>
+<style>
+        head {
+            font-size:40px;
+        }
+        body{
+        background-image: url('background_ocean.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+        
+    </style>
+
     <head>
         <title>Insert Request</title>
         <h1></h1>

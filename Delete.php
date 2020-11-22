@@ -1,4 +1,17 @@
 <html>
+    <style>
+        head {
+            font-size:40px;
+        }
+        body{
+        background-image: url('background_ocean.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+        
+    </style>
+
     <head>
         <title>Delete Request</title>
     </head>
@@ -15,12 +28,12 @@
 
         <h2>Display the Tuples in Has_Manager Table</h2>
         <form method="GET" action="Delete.php"> <!--refresh page when submitted-->
-            <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
+            <input type="submit" value="DisplayTuples" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
-    
+        <hr />
        <form method="POST" action="Delete.php"> <!--refresh page when submitted-->
-            <input type="submit" id="Back to DemoPage" name="DEMO_redirect">
+            <input type="submit" value="BACK TO MAIN PAGE" id="Back to DemoPage" name="DEMO_redirect">
     
         </form>
         <?php
