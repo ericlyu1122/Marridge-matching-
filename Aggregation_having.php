@@ -14,11 +14,12 @@
 
     <head >
         <title>CPSC 304 PHP/Oracle Demonstration</title>
+         <h1>Aggregation with Having Request</h1>
     </head>
 
 
     <body>
-        <h2>Aggregation with Having </h2>
+        <h2>Aggregation with Having on Customer_advises table</h2>
         <form method="GET" action="Aggregation_having.php">
             <input type="hidden" id="requestAgg" name="requestAgg">
             <p>Find the maximum age for each occupation only for those occupations that have at least 2 tuples in Customer_advises table :</br> 

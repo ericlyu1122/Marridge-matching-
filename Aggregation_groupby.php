@@ -32,11 +32,12 @@
 
     <head >
         <title>CPSC 304 PHP/Oracle Demonstration</title>
+         <h1>Aggregation with Group By Request</h1>
     </head>
 
 
     <body>
-        <h2 class="title">Aggregation with Group By </h2>
+        <h2 class="title">Aggregation with Group By on Customer_advises table </h2>
 
         <form method="GET" action="Aggregation_groupby.php">
             <input type="hidden" id="requestAgg" name="requestAgg">
