@@ -221,8 +221,9 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
-  <p> <font size="5" face="Lucida Console" color="black"> -Division:
+  <p> <font size="7" face="Lucida Console" color="black"> -Division:
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
+
 SELECT mmsc.Name_MSC
 FROM Manage_MSC mmsc 
 WHERE NOT EXISTS 
@@ -249,7 +250,7 @@ WHERE NOT EXISTS
         <h2>Marriage Matching Corporation</h2> -->
         <!-- <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demonstration</h1> -->
         <p>
-            <font size="5" face="Lucida Console" color="white">Marriage Matching Corporation<p>
+            <font size="3" face="Lucida Console" color="white">Marriage Matching Corporation<p>
                 
              <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php">
              <!--refresh page when submitted-->
