@@ -19,7 +19,6 @@
 <html>
     <style>
         head {
-
             font-size:40px;
         }
         body{
@@ -28,11 +27,9 @@
         background-attachment: fixed;
         background-size: 100% 100%;
 
-        font-size:25px;
+    
         }
-        body form{
-            font-size:20px;
-        }
+        
     </style>
 
     <head >
@@ -41,19 +38,17 @@
 
 
     <body>
-        <h2>Aggregation with Group By </h2>
+        <h2 class="title">Aggregation with Group By </h2>
 
-            <form method="GET" action="Aggregation_groupby.php">
+        <form method="GET" action="Aggregation_groupby.php">
             <input type="hidden" id="requestAgg" name="requestAgg">
             Find the maximum age for each occupations for table Customer_advises: <br /><br />
-            Number: <input type="text" name="aggNum"> <br /><br />
-
             <input type="submit" value="submit" name="clickAggGroupBy"></p>
         </form>
 
-        <h2>Display the Tuples in Customer_advises Table</h2>
+        <h2 class="sub_title">Display the Tuples in Customer_advises Table</h2>
         <form method="GET" action="Aggregation_groupby.php"> <!--refresh page when submitted-->
-            <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
+            <input type="submit" value="displayTuples" name="displayTupleRequest">
         </form>
 
         <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
@@ -137,7 +132,7 @@
 
         function printResult($result) { //prints results from a select statement
             echo"<h2>Result</h2>";
-            echo "<br>Customers' occupations that their minimum age is strictly below the average of the minimum age over all occupations: <br> is(are): ";
+            echo "<br>Customers' occupations and thier associated maximum age are: ";
             echo "<table>";
             echo "<tr><th>Occupation </th><th>Maximum Age </th></tr>";
 
@@ -189,7 +184,7 @@
             global $db_conn;
             $result = executePlainSQL("SELECT Occupation,MAX(age) AS maxage
                                         FROM Customer_advises 
-                                        GROUP BY Occupation;");
+                                        GROUP BY Occupation");
 
             printResult($result);
         } 
@@ -204,7 +199,7 @@
                 handleAggGroupBy();
                 disconnectFromDB();
             } 
-        } else if (isset($_POST['display_result'])) {
+        } else if (isset($_GET['displayTupleRequest'])) {
              if(connectToDB()) {
                 handledisplayRequest();
                 disconnectFromDB();
