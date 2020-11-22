@@ -25,15 +25,8 @@
                <option value="ManagerID">ManagerID</option>
                <option value="Workforce">Workforce</option>
             </select>
-            Joins 
-            <select name="btable">
-               <option value="EmployeeID">EmployeeID</option>
-               <option value="E_name">E_name</option>
-               <option value="Rate">Rate</option>
-               <option value="ManagerID">ManagerID</option>
-            </select><br /><br />
-
-
+            operator <input type="text" name="operator"> value <input type="text" name="value">
+        
             <input type="submit" value="JoinButton" name="joinSubmit"></p>
         </form>
 
@@ -200,7 +193,7 @@
         function handleJoinRequest() {
              global $db_conn;
     
-        $result=executePlainSQL("SELECT * FROM Has_Manager natrual join Matchmaker_manage WHERE {$_POST['atable']} = {$_POST['btale']}");
+        $result=executePlainSQL("SELECT * FROM Has_Manager H, Matchmaker_manage M WHERE {$_POST['atable']} {$_POST['operator']} {$_POST['value']} AND H.ManagerID = M.ManagerID");
         printJoinResult($result);
         OCICommit($db_conn);
         }
