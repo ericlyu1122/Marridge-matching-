@@ -1,5 +1,16 @@
 
 <html>
+    <style>
+        head {
+            font-size:40px;
+        }
+        body{
+        background-image: url('background_ocean.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+    </style>
     <head>
         <title>Insert Request</title>
         <h1> </h1>
@@ -24,6 +35,10 @@
         <form method="GET" action="Update.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
+        </form>
+        <hr />
+        <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
+                <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
         </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
