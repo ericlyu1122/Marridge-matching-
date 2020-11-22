@@ -21,16 +21,11 @@
 
             font-size:40px;
         }
-        body{
+      body{
         background-image: url('background_ocean.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
-
-        font-size:25px;
-        }
-        body form{
-            font-size:20px;
         }
     </style>
 
@@ -40,23 +35,22 @@
 
 
     <body>
-        <h2>Aggregation with Group By </h2>
-
-            <form method="GET" action="Aggregation_having.php">
+        <h2>Aggregation with Having </h2>
+        <form method="GET" action="Aggregation_having.php">
             <input type="hidden" id="requestAgg" name="requestAgg">
-            Find the maximum age for each occupations for table Customer_advises: <br /><br />
-            Number: <input type="text" name="aggNum"> <br /><br />
-
+            <p>Find the maximum age for each occupation only for those occupations that have at least 2 tuples in Customer_advises table :</br> 
             <input type="submit" value="submit" name="clickAggHaving"></p>
         </form>
 
+        <hr/>
         <h2>Display the Tuples in Customer_advises Table</h2>
         <form method="GET" action="Aggregation_having.php"> <!--refresh page when submitted-->
-            <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
+            <input type="submit" value="displayTuples" name="displayTupleRequest">
         </form>
 
+        <hr/>
         <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
-                <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
+            <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
         </form>
 
         <?php
@@ -135,6 +129,7 @@
         }
 
         function printResult($result) { //prints results from a select statement
+            echo" <hr/>";
             echo"<h2>Result</h2>";
             echo "<br>Customers' occupations that their minimum age is strictly below the average of the minimum age over all occupations where there have more than one person: <br> is(are): ";
             echo "<table>";
@@ -147,6 +142,7 @@
             echo "</table>";
         }
         function printCustomer_advises($result) { //prints results from a select statement
+            echo" <hr/>";
             echo "<br>Retrieved data from table Customer_advises:<br>";
             echo "<table>";
             echo "<tr><th>MemberID </th><th>Occupation </th><th>Birthday </th><th>Age </th><th>Customer Name </th><th>AccessToOthersProfile </th><th>Designated matchmaker's EmpolyeeID </th></tr>";
@@ -189,7 +185,7 @@
             $result = executePlainSQL("SELECT Occupation,MAX(age) AS maxage
                                         FROM Customer_advises
                                         GROUP BY Occupation
-                                        HAVING COUNT(*)>1;");
+                                        HAVING COUNT(*)>1");
 
             printResult($result);
         }
@@ -204,7 +200,7 @@
                 handleAggHaving();
                 disconnectFromDB();
             }
-        } else if (isset($_POST['display_result'])) {
+        } else if (isset($_GET['displayTupleRequest'])) {
              if(connectToDB()) {
                 handledisplayRequest();
                 disconnectFromDB();
