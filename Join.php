@@ -36,6 +36,7 @@
             <input type="submit" value="displayTuples" name="displayTupleRequest2">
     
         </form>
+        <hr />
        <form method="POST" action="Join.php"> <!--refresh page when submitted-->
             <input type="submit" value="Back To DemoPage" name="DEMO_redirect">
         </form>
