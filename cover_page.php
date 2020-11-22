@@ -51,7 +51,7 @@
 
 
     .marginauto {
-        margin: 10px auto 10px;
+        margin: 50px auto 10px;
         margin-left: auto;
         margin-right: auto;
         display: block;
