@@ -25,9 +25,15 @@
         </form>
 
         <hr />
+        <h2 class="sub_title">Display the Tuples in Customer_advises Table</h2>
+        <form method="GET" action="Aggregation_groupby.php"> <!--refresh page when submitted-->
+            <input type="submit" value="displayTuples" name="displayTupleRequest">
+        </form>
+
+        <hr />
         <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
                 <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
-            </form>
+         </form>
         
         
 
@@ -119,7 +125,20 @@
 
             echo "</table>";
         }
+        function printCustomer_advises($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table Customer_advises:<br>";
+            echo "<table>";
+            echo "<tr><th>MemberID </th><th>Occupation </th><th>Birthday </th><th>Age </th><th>Customer Name </th><th>AccessToOthersProfile </th><th>Designated matchmaker's EmpolyeeID </th></tr>";
 
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+               echo "<tr><td>" .$row[0]. "</td><td>" .$row[1]. 
+               "</td><td>" .$row[2]."</td><td>" .$row[3].
+               "</td><td>" .$row[4]."</td><td>" .$row[5].
+               "</td><td>" .$row[6]."</td></tr>"; 
+            }
+
+            echo "</table>";
+        }
         function connectToDB() {
             global $db_conn;
 
@@ -154,12 +173,22 @@
 
             printResult($result);
         } 
-
+        function handledisplayRequest() {
+            global $db_conn;
+            $result = executePlainSQL("SELECT * FROM Customer_advises");
+            printCustomer_advises($result);
+                
+        }
         if (isset($_GET['clickNestedAggregation'])) {
             if(connectToDB()) {
             handleNestedAgg();
             disconnectFromDB();
             } 
+        }else if (isset($_GET['displayTupleRequest'])) {
+             if(connectToDB()) {
+                handledisplayRequest();
+                disconnectFromDB();
+            }
         } else if (isset($_POST['DEMO_redirect'])) {
             header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
             exit;
