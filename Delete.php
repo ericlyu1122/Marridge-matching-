@@ -1,13 +1,6 @@
 <html>
     <head>
         <title>Delete Request</title>
-        <h1>CREATE TABLE Has_Manager(      ManagerID INTEGER, 
-Name_MSC CHAR(20) NOT NULL,
-CEO CHAR(20) NOT NULL,
-Name_m CHAR(20),
-Workforce INTEGER,
-PRIMARY KEY ManagerID,
-FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCADE) </h1>
     </head>
 
     <body>
