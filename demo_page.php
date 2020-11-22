@@ -133,92 +133,109 @@
 
 <div id="Insert" class="tabcontent">
   <h3> Insert</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Insert" name="INS_redirect"></p>
+     <input type="submit" value="Go to Insert" />  
 </form>
 </div>
 
 <div id="Delete" class="tabcontent">
   <h3> Delete</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Delete" name="DEL_redirect"></p>
+     <input type="submit" value="Go to Delete" />  
 </form>
 </div>
 
 <div id="Update" class="tabcontent">
   <h3> Update</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Update.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Update" name="UPD_redirect"></p>
+     <input type="submit" value="Go to Update" />  
 </form>
 </div>
 
 <div id="Selection" class="tabcontent">
   <h3> Selection</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Selection.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Selection" name="SEL_redirect"></p>
+     <input type="submit" value="Go to Selection" />  
 </form>
 </div>
 
 <div id="Projection" class="tabcontent">
   <h3> Projection</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Projection" name="PROJ_redirect"></p>
+     <input type="submit" value="Go to Projection" />  
 </form>
 </div>
 
 <div id="Join" class="tabcontent">
   <h3> Join</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Join" name="JOIN_redirect"></p>
+     <input type="submit" value="Go to Join" />  
 </form>
 </div>
 
 <div id="Aggregation Having" class="tabcontent">
   <h3> Aggregation Having</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Aggregation Having" name="AGGH_redirect"></p>
+     <input type="submit" value="Go to Aggregation Having" />  
 </form>
 </div>
 
 <div id="Nested Aggregation" class="tabcontent">
   <h3> Nested Aggregation</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php" 
-<form method="POST" action="demo_page.php">
+   <p> Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
+WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
+            FROM Customer_advises  
+            GROUP BY Occupation) 
+SELECT tmp.Occupation, tmp.minage
+FROM tmp
+WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/NestedAggregation.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Aggregation Group By" name="AGN_redirect"></p>
+     <input type="submit" value="Go to Nested Aggregation" />  
 </form>
 </div>
 
 
 <div id="Aggregation Group By" class="tabcontent">
   <h3> Aggregation Group By</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php" 
-<form method="POST" action="demo_page.php">
+  <p>  </p>
+<form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Aggregation Group By" name="AGGB_redirect"></p>
+     <input type="submit" value="Go to Aggregation Group By" />  
 </form>
 </div>
 
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
-  <p> "https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php" 
-<form method="POST" action="demo_page.php">
+  <p> -Division:
+Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
+SELECT mmsc.Name_MSC
+FROM Manage_MSC mmsc 
+WHERE NOT EXISTS 
+    ((SELECT hm.ManagerID 
+      FROM Has_Manager hm) 
+     MINUS
+    (SELECT hm2.ManagerID
+     FROM Has_Manager hm2 
+     WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
+      
+   <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php">
     <!--refresh page when submitted-->
-    <input type="submit" value="Go to Division" name="DIV_redirect"></p>
+     <input type="submit" value="Go to Division" />  
 </form>
 </div>
 
@@ -236,9 +253,7 @@
                 
              <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php">
              <!--refresh page when submitted-->
-             <input type="submit" value="Go to Cover" />
-    
-                    
+             <input type="submit" value="Go to Cover" />                 
                 </p>
                 </form>
     </div>
