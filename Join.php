@@ -148,10 +148,10 @@
     }
 
 
-         function printResult($result) { //prints results from a select statement
+         function printHas_Manager($result) { //prints results from a select statement
             echo "<br>Retrieved data from table Has_Manager:<br>";
             echo "<table>";
-           echo "<tr><th> ManagerID </th><th>Name_MSC </th><th>Name_mCEO </th><th>Workforce </th></tr>";
+           echo "<tr><th> ManagerID </th><th>Name_MSC </th><th>CEO </th><th>Manager_name </th><th>Workforce </th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] 
@@ -160,7 +160,17 @@
 
             echo "</table>";
         }
-        
+        function printMatchmaker_manage($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table Matchmaker_manage:<br>";
+            echo "<table>";
+           echo "<tr><th> EmployeeID </th><th>Employee_name </th><th>Rate </th><th>ManagerID </th></tr>";
+
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+               echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] .  "</td><td>" ; 
+            }
+
+            echo "</table>";
+        }
         function connectToDB() {
             global $db_conn;
 
@@ -210,7 +220,7 @@
                 global $db_conn;
 
                 $result = executePlainSQL("SELECT * FROM Has_Manager");
-                printResult($result);
+                printHas_Manager($result);
                 
             }
         
@@ -218,7 +228,7 @@
                 global $db_conn;
 
                 $result = executePlainSQL("SELECT * FROM Matchmaker_manage");
-                printResult($result);
+                printMatchmaker_manage($result);
                 
             }
 
