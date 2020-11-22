@@ -17,14 +17,7 @@
     <body>
         <h2>Select tuples with input Id and parameter from the Has_Manager Table</h2>
         <form method="POST" action="Selection.php"> <!--refresh page when submitted-->
-            <select name="type">
-               <option value="Name_MSC">Name_MSC</option>
-               <option value="CEO">CEO</option>
-                <option value="Name_m">Name_m</option>
-               <option value="ManagerID">ManagerID</option>
-               <option value="Workforce">Workforce</option>
-            </select>
-            operator <input type="text" name="operator"> value <input type="text" name="value">
+            Workforce operator(<,>,= etc.)<input type="text" name="operator"> value <input type="text" name="value">
             <input type="submit" value="SelectButton" name="Select"></p>
         </form>
 
@@ -155,7 +148,7 @@
 
         function handleSelectionRequest() {
              global $db_conn;
-            $query = "SELECT * FROM Has_Manager WHERE {$_POST['type']} {$_POST['operator']} {$_POST['value']}";
+            $query = "SELECT * FROM Has_Manager WHERE Workforce {$_POST['operator']} {$_POST['value']}";
             $result = executePlainSQL($query);
             printResult($result);
             OCICommit($db_conn);
@@ -169,7 +162,6 @@
                 
             }
 
-       
         if (isset($_POST['Select'])) {
             if(connectToDB()) {
                 handleSelectionRequest();
