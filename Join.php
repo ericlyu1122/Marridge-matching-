@@ -219,7 +219,7 @@
         function handledisplayRequest2() {
                 global $db_conn;
 
-                $result = executePlainSQL("SELECT * FROM Mathchmaker_manage");
+                $result = executePlainSQL("SELECT * FROM Matchmaker_manage");
                 printResult($result);
                 
             }
