@@ -133,8 +133,11 @@
 
 <div id="Insert" class="tabcontent">
   <h3> Insert</h3>
-  <p> <font size="2" face="Lucida Console" color="black"> Insert a value into the Has_Manager Table 
-      Insert INTO Has_Manager VALUES(123, "Huang's Marriage.Co","Steven Huang",	"Patrick Huang",20	")</p>
+  <p> <font size="2" face="Lucida Console" color="black"> 
+  Insert a value into the Has_Manager Table: 
+    Insert
+    INTO Has_Manager
+    VALUES(123, "Huang's Marriage.Co","Steven Huang","Patrick Huang",20	")</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Insert.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Insert" />  
@@ -144,7 +147,10 @@
 <div id="Delete" class="tabcontent">
   <h3> Delete</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-    Delete FROM Has_Manager WHERE ManagerID=123</p>
+  Delete tuples in the Has_Manager Table:  
+    Delete
+    FROM Has_Manager 
+    WHERE ManagerID=123</p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Delete.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Delete" />  
@@ -154,8 +160,8 @@
 <div id="Update" class="tabcontent">
   <h3> Update</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-   Select values from the Customer_advises Table: 
-      UPDATE 
+   Update values in the Customer_advises Table:  
+      UPDATE
       FROM Customer_advises
       SET Name= Eric Lyu
       WHERE MemberID = 22331
@@ -184,9 +190,9 @@
 <div id="Projection" class="tabcontent">
   <h3> Projection</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-    List all Matchmakers Names in MatchMaker_manage
+    List all Matchmakers' name in MatchMaker_manage
      SELECT name
-     FROM MatchMaker_manage;
+     FROM MatchMaker_manage
 
     </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php">
@@ -198,8 +204,9 @@
 <div id="Join" class="tabcontent">
   <h3> Join</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-      Join the Has_Manager table with Matchmaker_manage table and user can choose the workforce
-      SELECT * FROM Has_Manager H, Matchmaker_manage M 
+      Join the Has_Manager table with Matchmaker_manage table and user need to provide an operator and a number to qualify Workforce in the WHERE clause:
+      SELECT * 
+      FROM Has_Manager H, Matchmaker_manage M 
       WHERE workforce > 10 AND H.ManagerID = M.ManagerID
       </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Join.php">
@@ -241,10 +248,8 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 
 <div id="Aggregation Group By" class="tabcontent">
-  <h3> Aggregation Group By</h3>
+  <h3> Aggregation with Group By</h3>
   <p> <font size="2" face="Lucida Console" color="black">
-    -Aggregation with Group By:
-      
     Find the maximum age for each occupation in Customer_advises table: 
         SELECT Occupation,MAX(age) AS maxage
         FROM Customer_advises 
@@ -261,16 +266,16 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
   <p> <font size="2" face="Lucida Console" color="black"> -Division:
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
 
-SELECT mmsc.Name_MSC
-FROM Manage_MSC mmsc 
-WHERE NOT EXISTS 
-    ((SELECT hm.ManagerID 
-      FROM Has_Manager hm) 
-     MINUS
-    (SELECT hm2.ManagerID
-     FROM Has_Manager hm2 
-     WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
-      
+    SELECT mmsc.Name_MSC
+    FROM Manage_MSC mmsc 
+    WHERE NOT EXISTS 
+        ((SELECT hm.ManagerID 
+        FROM Has_Manager hm) 
+        MINUS
+        (SELECT hm2.ManagerID
+        FROM Has_Manager hm2 
+        WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
+        
    <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Division" />  
