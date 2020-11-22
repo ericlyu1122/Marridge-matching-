@@ -18,6 +18,11 @@
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
+    
+       <form method="POST" action="Delete.php"> <!--refresh page when submitted-->
+            <input type="submit" id="Back to DemoPage" name="DEMO_redirect">
+    
+        </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
 
@@ -166,7 +171,7 @@
                 disconnectFromDB();
             }
         } else if (isset($_POST['DEMO_redirect'])) {
-            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
             exit;
         }
         ?>

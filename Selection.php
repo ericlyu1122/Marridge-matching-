@@ -1,13 +1,7 @@
 <html>
     <head>
         <title>Selection Request</title>
-        <h1>CREATE TABLE Has_Manager(      ManagerID INTEGER, 
-Name_MSC CHAR(20) NOT NULL,
-CEO CHAR(20) NOT NULL,
-Name_m CHAR(20),
-Workforce INTEGER,
-PRIMARY KEY ManagerID,
-FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCADE) </h1>
+        
     </head>
 
     <body>
@@ -27,10 +21,15 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
         <hr />
 
         <h2>Display the Tuples in Has_Manager Table</h2>
-        <form method="POST" action="Selection.php"> <!--refresh page when submitted-->
+        <form method="GET" action="Selection.php"> <!--refresh page when submitted-->
             <input type="submit" id="displayTupleRequest" name="displayTupleRequest">
     
         </form>
+    
+        <hr />
+         <form method="POST" action="Selection.php">
+        <input type="ReturnToDemo" value="DemoPage" name="DEMO_redirect">
+                  </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
 
@@ -172,7 +171,7 @@ FOREIGN KEY (CEO, Name_MSC) REFERENCES Manage_MSC(CEO, Name_MSC) ON DELETE CASCA
                 disconnectFromDB();
             }
         } else if (isset($_POST['DEMO_redirect'])) {
-            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
             exit;
         } 
         ?>
