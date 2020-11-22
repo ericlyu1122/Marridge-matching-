@@ -18,10 +18,7 @@
 
         body{
             /* The image used */
-            background-image: url("backgroup_ocean.jpg");
-
-            /* Add the blur effect */
-            
+            background-image: url("background_ocean.png");
 
             /* Full height */
             height: 100%;
