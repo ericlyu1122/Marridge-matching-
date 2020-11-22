@@ -196,7 +196,7 @@
         function handleJoinRequest() {
              global $db_conn;
     
-        $result=executePlainSQL("SELECT * FROM Has_Manager H, Matchmaker_manage M WHERE {$_POST['atable']} {$_POST['operator']} {$_POST['value']} AND H.ManagerID = M.ManagerID")
+        $result=executePlainSQL("SELECT * FROM Has_Manager H, Matchmaker_manage M WHERE {$_POST['atable']} {$_POST['operator']} {$_POST['value']} AND H.ManagerID = M.ManagerID");
         printJoinResult($result);
         OCICommit($db_conn);
         }
