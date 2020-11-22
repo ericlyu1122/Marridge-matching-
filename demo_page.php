@@ -236,13 +236,22 @@
     <div class="bg-image"></div>
 
     <div class="bg-text">
-        <h1 style="font-size:50px;color:white;">Marriage Matching Corporation</h1>
+        <!-- <P><font face="Lucida Console" color="white"><P>
+        <h2>Marriage Matching Corporation</h2> -->
+        <!-- <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demonstration</h1> -->
         <p>
-        <form method="POST" action="demo_page.php">
-            <!--refresh page when submitted-->
-            <input type="submit" value="Back to Cover Page" name="START_redirect"></p>
-        </form>
-        </p>
+            <font size="5" face="Lucida Console" color="white">Marriage Matching Corporation<p>
+                    <p>
+                        <font size="6" face="Lucida Console" color="white">CPSC 304 PHP/Oracle Demonstration
+                    </p>
+                    <p>
+                        <font size="5" face="Lucida Console" color="white"> Eric Lyu, Steven Huang, Zoey Li
+                    </p>
+                    <form method="POST" action="cover_page.php">
+                        <!--refresh page when submitted-->
+                        <input type="submit" value="START" name="START_redirect">
+                </p>
+                </form>
     </div>
 
 
