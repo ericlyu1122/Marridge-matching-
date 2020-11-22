@@ -45,12 +45,12 @@
             Find the maximum age for each occupations for table Customer_advises: <br /><br />
             <input type="submit" value="submit" name="clickAggGroupBy"></p>
         </form>
-
+        <hr />
         <h2 class="sub_title">Display the Tuples in Customer_advises Table</h2>
         <form method="GET" action="Aggregation_groupby.php"> <!--refresh page when submitted-->
             <input type="submit" value="displayTuples" name="displayTupleRequest">
         </form>
-
+        <hr />
         <form method="POST" action="demo_page.php"> <!--refresh page when submitted-->
                 <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
         </form>
