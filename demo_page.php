@@ -227,11 +227,11 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
   <p> <font size="2" face="Lucida Console" color="black">
     -Aggregation with Group By:
       
-Find the maximum age for each occupations: 
-SELECT Occupation,MAX(age) AS maxage
-FROM Customer_advises 
-GROUP BY Occupation;
-    </p>
+    Find the maximum age for each occupation in Customer_advises table: 
+        SELECT Occupation,MAX(age) AS maxage
+        FROM Customer_advises 
+        GROUP BY Occupation;
+     </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Aggregation Group By" />  

@@ -20,7 +20,7 @@ WHERE NOT EXISTS
      WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
 
 -Aggregation with Group By:
-Find the maximum age for each occupations: 
+Find the maximum age for each occupation in Customer_advises table: 
 SELECT Occupation,MAX(age) AS maxage
 FROM Customer_advises 
 GROUP BY Occupation;
@@ -31,7 +31,7 @@ List all Matchmakers Names in MatchMaker_manage
      FROM MatchMaker_manage;
      
 -Aggregation Having
-Find the maximum age for each occupations where there have more than one person: 
+Find the maximum age for each occupation only for those occupations that have at least 2 tuples in Customer_advises table:
 SELECT Occupation,MAX(age) AS maxage
 FROM Customer_advises 
 GROUP BY Occupation

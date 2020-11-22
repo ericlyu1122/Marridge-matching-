@@ -40,7 +40,7 @@
 
         <form method="GET" action="Aggregation_groupby.php">
             <input type="hidden" id="requestAgg" name="requestAgg">
-            Find the maximum age for each occupations for table Customer_advises: <br /><br />
+            Find the maximum age for each occupation in Customer_advises table: <br /><br />
             <input type="submit" value="submit" name="clickAggGroupBy"></p>
         </form>
         <hr />
