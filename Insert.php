@@ -6,16 +6,7 @@
     </head>
 
     <body>
-        <h2>Reset</h2>
-        <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
-
-        <form method="POST" action="Insert.php">
-            <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
-            <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
-            <p><input type="submit" value="Reset" name="reset"></p>
-        </form>
-
-        <hr />
+        
 
         <h2>Insert Values into Has_Manager</h2>
         <form method="POST" action="Insert.php"> <!--refresh page when submitted-->
@@ -150,17 +141,6 @@
         }
 
 
-        function handleResetRequest() {
-            global $db_conn;
-            // Drop old table
-            executePlainSQL("DROP TABLE Has_Manager");
-
-            // Create new table
-            echo "<br> creating new table <br>";
-            executePlainSQL("CREATE TABLE Has_Manager (ManagerID int PRIMARY KEY, Name_MSC char(20) NOT NULL,CEO char(20) NOT NULL,Name_m char(20),Workforce int)");
-            OCICommit($db_conn);
-        }
-
         function handleInsertRequest() {
              global $db_conn;
     
@@ -181,10 +161,7 @@
     // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
         function handlePOSTRequest() {
             if (connectToDB()) {
-                if (array_key_exists('resetTablesRequest', $_POST)) {
-                    handleResetRequest();
-                }
-                else if (array_key_exists('insertQueryRequest', $_POST)) {
+                 if (array_key_exists('insertQueryRequest', $_POST)) {
                     handleInsertRequest();
                 }
 
@@ -193,7 +170,7 @@
         }
 
 
-        if (isset($_POST['reset']) || isset($_POST['insertSubmit'])) {
+        if (isset($_POST['insertSubmit'])) {
             handlePOSTRequest();
         } else if (isset($_GET['displayTupleRequest'])) {
             if(connectToDB()) {
