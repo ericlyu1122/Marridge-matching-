@@ -169,7 +169,12 @@
 
 <div id="Projection" class="tabcontent">
   <h3> Projection</h3>
-  <p>  </p>
+  <p> <font size="7" face="Lucida Console" color="black"> 
+    List all Matchmakers Names in MatchMaker_manage
+     SELECT name
+     FROM MatchMaker_manage;
+
+    </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Projection.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Projection" />  
@@ -187,7 +192,13 @@
 
 <div id="Aggregation Having" class="tabcontent">
   <h3> Aggregation Having</h3>
-  <p>  </p>
+  <p> <font size="7" face="Lucida Console" color="black">
+      Find the maximum age for each occupations where there have more than one person: 
+SELECT Occupation,MAX(age) AS maxage
+FROM Customer_advises 
+GROUP BY Occupation
+HAVING COUNT(*)>1;
+      </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_having.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Aggregation Having" />  
@@ -196,7 +207,8 @@
 
 <div id="Nested Aggregation" class="tabcontent">
   <h3> Nested Aggregation</h3>
-   <p> Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
+   <p> <font size="7" face="Lucida Console" color="black"> 
+       Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
 WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
             FROM Customer_advises  
             GROUP BY Occupation) 
@@ -212,7 +224,14 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 <div id="Aggregation Group By" class="tabcontent">
   <h3> Aggregation Group By</h3>
-  <p>  </p>
+  <p> <font size="7" face="Lucida Console" color="black">
+    -Aggregation with Group By:
+      
+Find the maximum age for each occupations: 
+SELECT Occupation,MAX(age) AS maxage
+FROM Customer_advises 
+GROUP BY Occupation;
+    </p>
 <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Aggregation_groupby.php">
     <!--refresh page when submitted-->
      <input type="submit" value="Go to Aggregation Group By" />  
