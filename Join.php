@@ -5,16 +5,7 @@
     </head>
 
     <body>
-        <h2>Reset</h2>
-        <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
-
-        <form method="POST" action="Join.php">
-            <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
-            <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
-            <p><input type="submit" value="Reset" name="reset"></p>
-        </form>
-
-        <hr />
+  
 
         <h2>Join Has_Manager table with Matchmaker_manage table</h2>
         <form method="POST" action="Join.php"> <!--refresh page when submitted-->
@@ -45,7 +36,8 @@
             <input type="submit" id="displayTupleRequest2" name="displayTupleRequest2">
     
         </form>
-    
+       <form method="POST" action="Join.php"> <!--refresh page when submitted-->
+            <input type="submit" id="Back To DemoPage" name="DEMO_redirect">
         </form>
         <?php
         //this tells the system that it's no longer just parsing html; it's now parsing PHP
@@ -259,7 +251,7 @@
             }
         }
         else if (isset($_POST['DEMO_redirect'])) {
-            header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
+            header('Location: https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/demo_page.php');
             exit;
         }
         ?>

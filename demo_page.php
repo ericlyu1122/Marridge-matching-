@@ -169,7 +169,7 @@
 
 <div id="Projection" class="tabcontent">
   <h3> Projection</h3>
-  <p> <font size="7" face="Lucida Console" color="black"> 
+  <p> <font size="2" face="Lucida Console" color="black"> 
     List all Matchmakers Names in MatchMaker_manage
      SELECT name
      FROM MatchMaker_manage;
@@ -192,7 +192,7 @@
 
 <div id="Aggregation Having" class="tabcontent">
   <h3> Aggregation Having</h3>
-  <p> <font size="7" face="Lucida Console" color="black">
+  <p> <font size="2" face="Lucida Console" color="black">
       Find the maximum age for each occupations where there have more than one person: 
 SELECT Occupation,MAX(age) AS maxage
 FROM Customer_advises 
@@ -207,7 +207,7 @@ HAVING COUNT(*)>1;
 
 <div id="Nested Aggregation" class="tabcontent">
   <h3> Nested Aggregation</h3>
-   <p> <font size="7" face="Lucida Console" color="black"> 
+   <p> <font size="2" face="Lucida Console" color="black"> 
        Find those occupations for which thier minimum age is strictly below the average of the minimum age over all occupations.
 WITH tmp AS (SELECT Occupation, MIN(Age) AS minage
             FROM Customer_advises  
@@ -224,7 +224,7 @@ WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp); </p>
 
 <div id="Aggregation Group By" class="tabcontent">
   <h3> Aggregation Group By</h3>
-  <p> <font size="7" face="Lucida Console" color="black">
+  <p> <font size="2" face="Lucida Console" color="black">
     -Aggregation with Group By:
       
 Find the maximum age for each occupations: 
@@ -240,7 +240,7 @@ GROUP BY Occupation;
 
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
-  <p> <font size="7" face="Lucida Console" color="black"> -Division:
+  <p> <font size="2" face="Lucida Console" color="black"> -Division:
 Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
 
 SELECT mmsc.Name_MSC
@@ -269,7 +269,7 @@ WHERE NOT EXISTS
         <h2>Marriage Matching Corporation</h2> -->
         <!-- <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demonstration</h1> -->
         <p>
-            <font size="3" face="Lucida Console" color="white">Marriage Matching Corporation<p>
+            <font size="7" face="Lucida Console" color="white">Marriage Matching Corporation<p>
                 
              <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php">
              <!--refresh page when submitted-->
