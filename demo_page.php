@@ -233,10 +233,12 @@
         <!-- <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demonstration</h1> -->
         <p>
             <font size="5" face="Lucida Console" color="white">Marriage Matching Corporation<p>
-  
-                    <form method="POST" action="cover_page.php">
-                        <!--refresh page when submitted-->
-                        <input type="submit" value="START" name="START_redirect">
+                
+             <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php">
+             <!--refresh page when submitted-->
+             <input type="submit" value="Go to Cover" />
+    
+                    
                 </p>
                 </form>
     </div>
