@@ -5,6 +5,7 @@ Group members: Eric Lyu, Steven Huang, Zhuoyi Li
 
 - sql script: marriage-matching.sql
 - a list of queries used: SQLQueries.txt
+- Screenshots: Under screenshot folder
 - Project website:
     https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/cover_page.php
 - Project report: 
