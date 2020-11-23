@@ -253,11 +253,13 @@ VALUES(41100, 'William', 10, 22334);
 INSERT INTO Customer_advises
 VALUES(22331, 'Driver', '09-FEB-78', 42, 'Lisa Wu', 'True', 10011);
 INSERT INTO Customer_advises
+VALUES(22330, 'Professor', '19-FEB-79', 41, 'Amy Keri', 'True', 41100);
+INSERT INTO Customer_advises
 VALUES(98872, 'Police', '13-FEB-80', 40, 'Amanda Wu', 'False', 10011);
 INSERT INTO Customer_advises
 VALUES(09876, 'Biochemical Engineer', '01-FEB-77', 43, 'Dina Liu', 'True', 30102);
 INSERT INTO Customer_advises
-VALUES(11442, 'Civil Engineer', '30-MAR-79', 41, 'Alice Sun', 'True', 21030);
+VALUES(11442, 'Computer Engineer', '30-MAR-79', 41, 'Alice Sun', 'True', 21030);
 INSERT INTO Customer_advises
 VALUES(09877, 'Police', '02-APR-73', 47, 'John Wu', 'True', 30102);
 INSERT INTO Customer_advises
@@ -268,6 +270,8 @@ INSERT INTO Customer_advises
 VALUES(12001, 'Computer Engineer', '19-NOV-86', 21, 'Maxon Zhao', 'True', 41100);
 INSERT INTO Customer_advises
 VALUES(11898, 'Accountant', '11-JUL-92', 31, 'Cindy Huang', 'True', 21030);
+INSERT INTO Customer_advises
+VALUES(10008, 'Accountant', '18-JUN-02', 21, 'Juliana Furtado', 'True', 21030);
 INSERT INTO Customer_advises
 VALUES(11285, 'Pilot', '07-JAN-94', 26, 'Nicolas Ng', 'True', 30102);
 
