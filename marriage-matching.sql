@@ -198,13 +198,25 @@ VALUES(14981, 5, 'DIYGift', 'Handmade', 'Giftcard');
 INSERT INTO DatingAgency
 VALUES('Huang''s Agency', 'twenty percents', 'China');
 INSERT INTO DatingAgency
-VALUES('Eric''s Agency', 'ten percents', 'America');
+VALUES('Eric''s Agency', 'twenty percents', 'America');
 INSERT INTO DatingAgency
 VALUES('Zoey''s Agency', 'fifteen percents', 'Canada');
 INSERT INTO DatingAgency
 VALUES('Abbie''s Agency', 'twenty percents', 'Japan');
 INSERT INTO DatingAgency
 VALUES('Cindy''s Agency', 'twenty-five percents', 'Singapore');
+INSERT INTO DatingAgency
+VALUES('Julia''s Agency', 'twenty-five percents', 'Canada');
+INSERT INTO DatingAgency
+VALUES('John''s Agency', 'twenty percents', 'Canada');
+INSERT INTO DatingAgency
+VALUES('Williams''s Agency', 'twenty-five percents', 'China');
+INSERT INTO DatingAgency
+VALUES('Sara''s Agency', 'fifteen percents', 'China');
+INSERT INTO DatingAgency
+VALUES('Lucia''s Agency', 'fifteen percents', 'Japan');
+INSERT INTO DatingAgency
+VALUES('Amy''s Agency', 'twenty-five percents', 'Japan');
 
 INSERT INTO DatingClub
 VALUES('Huang''s Club', 100000, 50);

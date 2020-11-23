@@ -25,7 +25,7 @@
         <form method="GET" action="Division.php">
             <!--refresh page when submitted-->
             <input type="hidden" id="requestDivision" name="requestDivision">
-            Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.<br /><br />
+            Find the country of headquarter that has all kind of WholeMarketShare. <br /><br />
 
             <input type="submit" value="clickDivision" name="clickDivision"></p>
         </form>
@@ -35,12 +35,12 @@
 
         <form method="GET" action="Division.php">
             <!--refresh page when submitted-->
-            <input type="submit" value="List all the tuples in Manage_MSC table and in Has_Manager table" name="display_result"></p>
+            <input type="submit" value="List all the tuples in DatingAgency table " name="display_result"></p>
         </form>
         <hr />
         <form method="POST" action="demo_page.php">
             <!--refresh page when submitted-->
-            <input type="submit" value="BACK TO Main PAGE" name="DEMO_redirect"></p>
+            <input type="submit" value="BACK TO MAIN PAGE" name="DEMO_redirect"></p>
         </form>
 
    
@@ -125,9 +125,9 @@
 
         function printDivisionResult($result)
         { //prints results from a select statement
-            echo "<br>The name of the MSCs(Marriage Service Coorperations) that manage all the managers is(are):<br>";
+            echo "<br>The country of headquarter that has all kind of WholeMarketShare is(are):<br>";
             echo "<table>";
-            echo "<tr><th>Name_MSC </th></tr>";
+            echo "<tr><th>HQbaseCountry </th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
                 echo "<tr><td>" . $row[0] . "</td></tr>"; 
@@ -137,31 +137,15 @@
             echo "</table>";
         }
 
-        function printResultHas_Manager($result)
+        function printResultDatingAgency($result)
         { //prints results from a select statement
-            echo "<br>Retrieved data from table Has_Manager:<br>";
+            echo "<br>Retrieved data from table DatingAgency:<br>";
             echo "<table>";
-            echo "<tr><th>ManagerID </th><th>Name_MSC </th><th>CEO </th><th>M_Name </th><th>Workforce </th></tr>";
+            echo "<tr><th>DA_Name </th><th>WholeMarketShare </th><th>HQbaseCountry </th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
                 echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" 
-                . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4]."</td></tr>"; 
-                // echo $row[0];
-            }
-
-            echo "</table>";
-        }
-
-        function printResultManage_MSC($result)
-        { //prints results from a select statement
-            echo "<br>Retrieved data from table Manage_MSC:<br>";
-            echo "<table>";
-            echo "<tr><th>Name_MSC </th><th>CEO </th><th>ClubName </th><th>DA_Name </th></tr>";
-
-            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" 
-                . $row[2] . "</td><td>" . $row[3] ."</td></tr>"; 
-                // echo $row[0];
+                . $row[2] . "</td></tr>"; 
             }
 
             echo "</table>";
@@ -197,15 +181,15 @@
         function handleDivision()
         {
         
-            $result = executePlainSQL(" SELECT mmsc.Name_MSC
-                                        FROM Manage_MSC mmsc 
+            $result = executePlainSQL(" SELECT DISTINCT da.HQbaseCountry
+                                        FROM DatingAgency da 
                                         WHERE NOT EXISTS 
-                                            ((SELECT hm.ManagerID 
-                                            FROM Has_Manager hm) 
+                                        ((SELECT da1.WholeMarketShare 
+                                            FROM DatingAgency da1) 
                                             MINUS
-                                            (SELECT hm2.ManagerID
-                                            FROM Has_Manager hm2 
-                                            WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO))");
+                                        (SELECT da2.WholeMarketShare 
+                                            FROM DatingAgency da2
+                                            WHERE da.HQbaseCountry = da2.HQbaseCountry))");
             
             printDivisionResult($result);
         }
@@ -217,10 +201,9 @@
             }
         } else if (isset($_GET['display_result'])) {
             if (connectToDB()) {
-                $result = executePlainSQL("SELECT * FROM Manage_MSC");
-                printResultManage_MSC($result);
-                $result2 = executePlainSQL("SELECT * FROM Has_Manager");
-                printResultHas_Manager($result2);
+                $result = executePlainSQL("SELECT * FROM DatingAgency");
+                printResultDatingAgency($result);
+               
                 disconnectFromDB();
             }
         } else if (isset($_POST['DEMO_redirect'])) {

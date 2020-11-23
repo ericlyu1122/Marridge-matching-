@@ -264,16 +264,16 @@
 <div id="Division" class="tabcontent">
   <h3> Division</h3>
   <p> <font size="2" face="Lucida Console" color="black"> 
-Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
-    <br>SELECT mmsc.Name_MSC
-    <br>FROM Manage_MSC mmsc 
-    <br>WHERE NOT EXISTS 
-        <br>    ((SELECT hm.ManagerID 
-        <br>    FROM Has_Manager hm) 
-        <br>    MINUS
-        <br>    (SELECT hm2.ManagerID
-        <br>    FROM Has_Manager hm2 
-        <br>    WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));</p>
+Find the country of headquarter that has all kind of WholeMarketShare. 
+    <br>SELECT DISTINCT da.HQbaseCountry
+    <br> FROM DatingAgency da 
+    <br> WHERE NOT EXISTS 
+      <br> ((SELECT da1.WholeMarketShare 
+       <br>  FROM DatingAgency da1) 
+       <br>  MINUS
+       <br>(SELECT da2.WholeMarketShare 
+       <br>  FROM DatingAgency da2
+        <br> WHERE da.HQbaseCountry = da2.HQbaseCountry));</p>
         
    <form action="https://www.students.cs.ubc.ca/~zhuoyil/Marridge-matching-/Division.php">
     <!--refresh page when submitted-->

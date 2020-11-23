@@ -43,16 +43,16 @@ Find those occupations for which thier minimum age is strictly below the average
     WHERE tmp.minage < (SELECT AVG(tmp.minage) FROM tmp)
 
 -Division:
-Find the name of the MSCs(Marriage Service Coorperations) that has all the managers.
-    SELECT mmsc.Name_MSC
-    FROM Manage_MSC mmsc 
+Find the country of headquarter that has all kind of WholeMarketShare. 
+    SELECT DISTINCT da.HQbaseCountry
+    FROM DatingAgency da 
     WHERE NOT EXISTS 
-      ((SELECT hm.ManagerID 
-        FROM Has_Manager hm) 
+      ((SELECT da1.WholeMarketShare 
+        FROM DatingAgency da1) 
         MINUS
-      (SELECT hm2.ManagerID
-        FROM Has_Manager hm2 
-        WHERE hm2.Name_MSC = mmsc.Name_MSC AND hm2.CEO = mmsc.CEO));
+      (SELECT da2.WholeMarketShare 
+        FROM DatingAgency da2
+        WHERE da.HQbaseCountry = da2.HQbaseCountry));
 
 -Aggregation with Group By:
 Find the maximum age for each occupation in Customer_advises table: 
